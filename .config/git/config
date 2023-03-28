@@ -1,0 +1,30 @@
+[include]
+	path = config.local
+
+[core]
+	pager = delta
+	editor = nvim
+	autocrlf = input
+
+[interactive]
+	diffFilter = delta --color-only
+
+[delta]
+	navigate = true
+	light = false
+
+[merge]
+	conflictstyle = diff3
+
+[diff]
+	colorMoved = default
+
+[commit]
+	gpgsign = true
+
+[advice]
+	addIgnoredFile = false
+
+[url "github:"]
+	insteadOf = "https://github.com/"
+	insteadOf = "git@github.com:"
