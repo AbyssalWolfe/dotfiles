@@ -31,5 +31,4 @@
 	conflictstyle = diff3
 
 [url "github:"]
-	insteadOf = "https://github.com/"
 	insteadOf = "git@github.com:"
