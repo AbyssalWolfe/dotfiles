@@ -1,0 +1,279 @@
+/* =============================================================================
+ *
+ * Waybar configuration
+ *
+ * Configuration reference: https://github.com/Alexays/Waybar/wiki/Configuration
+ *
+ * =========================================================================== */
+
+/* -----------------------------------------------------------------------------
+ * Keyframes
+ * -------------------------------------------------------------------------- */
+
+@keyframes blink-warning {
+	70% {
+		color: @light;
+	}
+
+	to {
+		color: @light;
+		background-color: @warning;
+	}
+}
+
+@keyframes blink-critical {
+	70% {
+		color: @light;
+	}
+
+	to {
+		color: @light;
+		background-color: @critical;
+	}
+}
+
+
+/* -----------------------------------------------------------------------------
+ * Styles
+ * -------------------------------------------------------------------------- */
+
+/* COLORS */
+
+@define-color light #ebdbb2;
+@define-color dark #282828;
+@define-color warning #fabd2f;
+@define-color critical #cc241d;
+@define-color mode #a89984;
+@define-color workspaces #9580ff;
+@define-color workspacesfocused #aa99ff;
+@define-color sound #8aff80;
+@define-color network #b16286;
+@define-color memory #8ec07c;
+@define-color cpu #98971a;
+@define-color temp #b8bb26;
+@define-color layout #689d6a;
+@define-color battery #a2ff99;
+@define-color date #ff9580;
+@define-color time #ffaa99;
+
+/* Reset all styles */
+* {
+	border: none;
+	border-radius: 0;
+	min-height: 0;
+	margin: 0;
+	padding: 0;
+}
+
+/* The whole bar */
+#waybar {
+	background: transparent;
+	color: @light;
+	font-family: "Fira Code", "FiraCode Nerd Font";
+	font-size: 14pt;
+	font-weight: bold;
+}
+
+/* Each module */
+#battery,
+#clock,
+#cpu,
+#language,
+#memory,
+#mode,
+#network,
+#pulseaudio,
+#temperature,
+#custom-alsa,
+#sndio,
+#tray {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+/* Each module that should blink */
+/*#mode,
+#memory,
+#temperature,
+#battery {
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}*/
+
+/* Each critical module */
+#memory.critical,
+#cpu.critical,
+#temperature.critical,
+#battery.critical {
+	color: @critical;
+}
+
+/* Each critical that should blink */
+/*#mode,
+#memory.critical,
+#temperature.critical,
+#battery.critical.discharging {
+	animation-name: blink-critical;
+	animation-duration: 2s;
+}*/
+
+/* Each warning */
+#network.disconnected,
+#memory.warning,
+#cpu.warning,
+#temperature.warning,
+#battery.warning {
+	color: @warning;
+}
+
+/* Each warning that should blink */
+#battery.warning.discharging {
+	animation-name: blink-warning;
+	animation-duration: 3s;
+}
+
+/* And now modules themselves in their respective order */
+
+#mode { /* Shown current Sway mode (resize etc.) */
+	color: @light;
+	background: @mode;
+}
+
+/* Workspaces stuff */
+#workspaces button {
+	/*font-weight: bold;*/
+	padding-left: 4px;
+	padding-right: 4px;
+	color: @dark;
+	background: @workspaces;
+}
+
+#workspaces button.focused {
+	background: @workspacesfocused;
+}
+
+#workspaces button.urgent {
+	border-color: @critical;
+	color: @critical;
+}
+
+#window {
+	margin-right: 40px;
+	margin-left: 40px;
+}
+
+#custom-alsa,
+#pulseaudio,
+#sndio {
+	background: @sound;
+	color: @dark;
+}
+
+#network {
+	background: @network;
+	color: @dark;
+}
+
+#memory {
+	background: @memory;
+	color: @dark;
+}
+
+#cpu {
+	background: @cpu;
+	color: @dark;
+}
+
+#temperature {
+	background: @temp;
+	color: @dark;
+}
+
+#language {
+	background: @layout;
+	color: @dark;
+}
+
+#battery {
+	background: @battery;
+	color: @dark;
+}
+
+#tray {
+	background: @date;
+}
+
+#clock.date {
+	background: @date;
+	color: @dark;
+}
+
+#clock.time {
+	background: @time;
+	color: @dark;
+}
+
+#pulseaudio.muted {
+	/* No styles */
+}
+
+#custom-arrow1 {
+	font-size: 21pt;
+	color: @sound;
+	background: transparent;
+}
+
+#custom-arrow2 {
+	font-size: 21pt;
+	color: @network;
+	background: @sound;
+}
+
+#custom-arrow3 {
+	font-size: 21pt;
+	color: @memory;
+	background: @network;
+}
+
+#custom-arrow4 {
+	font-size: 21pt;
+	color: @cpu;
+	background: @memory;
+}
+
+#custom-arrow5 {
+	font-size: 21pt;
+	color: @sound;
+	background: transparent;
+}
+
+#custom-arrow6 {
+	font-size: 21pt;
+	color: @sound;
+	background: transparent;
+}
+
+#custom-arrow7 {
+	font-size: 21pt;
+	color: @battery;
+	background: @sound;
+}
+
+#custom-arrow8 {
+	font-size: 21pt;
+	color: @date;
+	background: @battery;
+}
+
+#custom-arrow9 {
+	font-size: 21pt;
+	color: @time;
+	background: @date;
+}
+
+#custom-arrow10 {
+	font-size: 21pt;
+	color: @workspaces;
+	background: transparent;
+}
