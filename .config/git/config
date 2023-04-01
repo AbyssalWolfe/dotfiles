@@ -13,7 +13,7 @@
 	light = false
 	line-numbers = true
 	navigate = true
-	syntax-theme = Dracula
+	syntax-theme = Dracula Pro
 
 [diff]
 	colorMoved = default
