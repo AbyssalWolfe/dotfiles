@@ -59,6 +59,7 @@ fish_add_path "$PNPM_HOME"
 fish_add_path "$(ruby -e 'print Gem.user_dir')/bin"
 
 # Aliases
+alias cd="pushd"
 alias dotfiles="git --git-dir=$XDG_DATA_HOME/dotfiles/ --work-tree=$HOME"
 alias l="lsd -a"
 alias ll="lsd -la"
@@ -78,4 +79,5 @@ if test -e /etc/os-release
 		end
 	end
 end
+alias pd="popd"
 alias v="$EDITOR"
