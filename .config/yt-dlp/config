@@ -1,2 +1,11 @@
---netrc
+--convert-subs ass
+--convert-thumbnails webp
 --cookies ~/.config/yt-dlp/cookies.txt
+--embed-metadata
+--embed-subs
+--embed-thumbnail
+--extractor-args crunchyrollbeta:hardsub=None
+--netrc
+--remux-video mkv
+--sponsorblock-remove all,-filler
+--sub-langs en.*
