@@ -1,9 +1,16 @@
 return {
+	--  ██████╗ ██████╗ ██╗      ██████╗ ██████╗ ███████╗ ██████╗██╗  ██╗███████╗███╗   ███╗███████╗
+	-- ██╔════╝██╔═══██╗██║     ██╔═══██╗██╔══██╗██╔════╝██╔════╝██║  ██║██╔════╝████╗ ████║██╔════╝
+	-- ██║     ██║   ██║██║     ██║   ██║██████╔╝███████╗██║     ███████║█████╗  ██╔████╔██║█████╗
+	-- ██║     ██║   ██║██║     ██║   ██║██╔══██╗╚════██║██║     ██╔══██║██╔══╝  ██║╚██╔╝██║██╔══╝
+	-- ╚██████╗╚██████╔╝███████╗╚██████╔╝██║  ██║███████║╚██████╗██║  ██║███████╗██║ ╚═╝ ██║███████╗
+	--  ╚═════╝ ╚═════╝ ╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚══════╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝     ╚═╝╚══════╝
 	{
 		"Mofiqul/dracula.nvim",
 		init = function()
 			local dracula = require("dracula")
 			dracula.setup {
+				-- Dracula PRO colors
 				colors = {
 					bg = "#22212c",
 					fg = "#f8f8f2",
@@ -35,6 +42,18 @@ return {
 			}
 		end
 	},
+	-- ██╗     ███████╗██████╗        ███████╗ ██████╗ ██████╗ ███╗   ███╗ █████╗ ████████╗
+	-- ██║     ██╔════╝██╔══██╗       ██╔════╝██╔═══██╗██╔══██╗████╗ ████║██╔══██╗╚══██╔══╝
+	-- ██║     ███████╗██████╔╝       █████╗  ██║   ██║██████╔╝██╔████╔██║███████║   ██║
+	-- ██║     ╚════██║██╔═══╝        ██╔══╝  ██║   ██║██╔══██╗██║╚██╔╝██║██╔══██║   ██║
+	-- ███████╗███████║██║     ▄█╗    ██║     ╚██████╔╝██║  ██║██║ ╚═╝ ██║██║  ██║   ██║   ▄█╗
+	-- ╚══════╝╚══════╝╚═╝     ╚═╝    ╚═╝      ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝   ╚═╝   ╚═╝
+	--  ██████╗ ██████╗ ███╗   ███╗██████╗ ██╗     ███████╗████████╗██╗ ██████╗ ███╗   ██╗
+	-- ██╔════╝██╔═══██╗████╗ ████║██╔══██╗██║     ██╔════╝╚══██╔══╝██║██╔═══██╗████╗  ██║
+	-- ██║     ██║   ██║██╔████╔██║██████╔╝██║     █████╗     ██║   ██║██║   ██║██╔██╗ ██║
+	-- ██║     ██║   ██║██║╚██╔╝██║██╔═══╝ ██║     ██╔══╝     ██║   ██║██║   ██║██║╚██╗██║
+	-- ╚██████╗╚██████╔╝██║ ╚═╝ ██║██║     ███████╗███████╗   ██║   ██║╚██████╔╝██║ ╚████║
+	--  ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚═╝     ╚══════╝╚══════╝   ╚═╝   ╚═╝ ╚═════╝ ╚═╝  ╚═══╝
 	{ "neovim/nvim-lspconfig" },
 	{
 		"jose-elias-alvarez/null-ls.nvim",
@@ -56,28 +75,9 @@ return {
 		end
 	},
 	{
-		"nvim-treesitter/nvim-treesitter",
-		init = function()
-			require("nvim-treesitter.configs").setup {
-				ensure_installed = "all",
-				auto_install = true,
-				highlight = {
-					enable = true
-				}
-			}
-		end,
-		build = ":TSUpdate"
-	},
-	{
 		"windwp/nvim-ts-autotag",
 		init = function()
 			require("nvim-ts-autotag").setup()
-		end
-	},
-	{
-		"zbirenbaum/copilot.lua",
-		init = function()
-			require("copilot").setup()
 		end
 	},
 	{
@@ -105,6 +105,31 @@ return {
 		end
 	},
 	{
+		"zbirenbaum/copilot.lua",
+		init = function()
+			require("copilot").setup()
+		end
+	},
+	-- ██╗      █████╗ ███╗   ██╗ ██████╗ ██╗   ██╗ █████╗  ██████╗ ███████╗
+	-- ██║     ██╔══██╗████╗  ██║██╔════╝ ██║   ██║██╔══██╗██╔════╝ ██╔════╝
+	-- ██║     ███████║██╔██╗ ██║██║  ███╗██║   ██║███████║██║  ███╗█████╗
+	-- ██║     ██╔══██║██║╚██╗██║██║   ██║██║   ██║██╔══██║██║   ██║██╔══╝
+	-- ███████╗██║  ██║██║ ╚████║╚██████╔╝╚██████╔╝██║  ██║╚██████╔╝███████╗
+	-- ╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚══════╝
+	--        ███████╗██████╗ ███████╗ ██████╗██╗███████╗██╗ ██████╗
+	--        ██╔════╝██╔══██╗██╔════╝██╔════╝██║██╔════╝██║██╔════╝
+	--        ███████╗██████╔╝█████╗  ██║     ██║█████╗  ██║██║
+	--        ╚════██║██╔═══╝ ██╔══╝  ██║     ██║██╔══╝  ██║██║
+	--        ███████║██║     ███████╗╚██████╗██║██║     ██║╚██████╗
+	--        ╚══════╝╚═╝     ╚══════╝ ╚═════╝╚═╝╚═╝     ╚═╝ ╚═════╝
+	{
+		"simrat39/rust-tools.nvim",
+		dependencies = { "neovim/nvim-lspconfig" },
+		init = function()
+			require("rust-tools").setup()
+		end
+	},
+	{
 		"Saecki/crates.nvim",
 		init = function()
 			require("crates").setup {
@@ -117,15 +142,159 @@ return {
 		end
 	},
 	{
+		"ray-x/go.nvim",
+		dependencies = {
+			"ray-x/guihua.lua",
+			"neovim/nvim-lspconfig",
+			"nvim-treesitter/nvim-treesitter",
+			"mfussenegger/nvim-dap",
+			"rcarriga/nvim-dap-ui",
+			"theHamsta/nvim-dap-virtual-text"
+		},
+		init = function()
+			require("go").setup()
+		end,
+		event = {"CmdlineEnter"},
+		ft = {"go", "gomod"},
+		build = ":lua require(\"go.install\").update_all_sync()"
+	},
+	{
+		"gennaro-tedesco/nvim-jqx",
+		init = function()
+			local jqx = vim.api.nvim_create_augroup("jqx", {})
+			vim.api.nvim_clear_autocmds({ group = jqx })
+			vim.api.nvim_create_autocmd("BufWinEnter", {
+				pattern = { "*.json", "*.yaml" },
+				desc = "preview json and yaml files on open",
+				group = jqx,
+				callback = function()
+					vim.cmd.JqxList()
+				end
+			})
+		end,
+		ft = {"json", "yaml"}
+	},
+	{
 		"vuki656/package-info.nvim",
-		requires = "MunifTanjim/nui.nvim",
+		dependencies = "MunifTanjim/nui.nvim",
 		init = function()
 			require("package-info").setup()
 		end
 	},
+	-- ███████╗██╗   ██╗███╗   ██╗████████╗ █████╗ ██╗  ██╗
+	-- ██╔════╝╚██╗ ██╔╝████╗  ██║╚══██╔══╝██╔══██╗╚██╗██╔╝
+	-- ███████╗ ╚████╔╝ ██╔██╗ ██║   ██║   ███████║ ╚███╔╝
+	-- ╚════██║  ╚██╔╝  ██║╚██╗██║   ██║   ██╔══██║ ██╔██╗
+	-- ███████║   ██║   ██║ ╚████║   ██║   ██║  ██║██╔╝ ██╗
+	-- ╚══════╝   ╚═╝   ╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝
+	{
+		"nvim-treesitter/nvim-treesitter",
+		init = function()
+			require("nvim-treesitter.configs").setup {
+				ensure_installed = "all",
+				auto_install = true,
+				highlight = {
+					enable = true
+				}
+			}
+		end,
+		build = ":TSUpdate"
+	},
+	{
+		"NvChad/nvim-colorizer.lua",
+		init = function()
+			require("colorizer").setup()
+		end
+	},
+	--  ██████╗ ██╗████████╗
+	-- ██╔════╝ ██║╚══██╔══╝
+	-- ██║  ███╗██║   ██║
+	-- ██║   ██║██║   ██║
+	-- ╚██████╔╝██║   ██║
+	--  ╚═════╝ ╚═╝   ╚═╝
+	{
+		"lewis6991/gitsigns.nvim",
+		init = function()
+			require("gitsigns").setup {
+				current_line_blame = true,
+				current_line_blame_opts = {
+					delay = 100
+				}
+			}
+		end
+	},
+	-- ███╗   ███╗ ██████╗ ██╗   ██╗███████╗███╗   ███╗███████╗███╗   ██╗████████╗
+	-- ████╗ ████║██╔═══██╗██║   ██║██╔════╝████╗ ████║██╔════╝████╗  ██║╚══██╔══╝
+	-- ██╔████╔██║██║   ██║██║   ██║█████╗  ██╔████╔██║█████╗  ██╔██╗ ██║   ██║
+	-- ██║╚██╔╝██║██║   ██║╚██╗ ██╔╝██╔══╝  ██║╚██╔╝██║██╔══╝  ██║╚██╗██║   ██║
+	-- ██║ ╚═╝ ██║╚██████╔╝ ╚████╔╝ ███████╗██║ ╚═╝ ██║███████╗██║ ╚████║   ██║
+	-- ╚═╝     ╚═╝ ╚═════╝   ╚═══╝  ╚══════╝╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝   ╚═╝
+	{
+		"declancm/cinnamon.nvim",
+		init = function()
+			require("cinnamon").setup {
+				extra_keymaps = true,
+				extended_keymaps = true
+			}
+		end
+	},
+	{
+		"cbochs/grapple.nvim",
+		dependencies = { "nvim-lua/plenary.nvim" },
+		init = function()
+			vim.keymap.set("n", "<leader>m", require("grapple").toggle)
+		end
+	},
+	{
+		"cbochs/portal.nvim",
+		dependencies = { "cbochs/grapple.nvim" },
+		init = function()
+			vim.keymap.set("n", "<leader>o", "<cmd>Portal jumplist backward<cr>")
+			vim.keymap.set("n", "<leader>i", "<cmd>Portal jumplist forward<cr>")
+		end
+	},
+	-- ███╗   ███╗██╗███████╗ ██████╗
+	-- ████╗ ████║██║██╔════╝██╔════╝
+	-- ██╔████╔██║██║███████╗██║
+	-- ██║╚██╔╝██║██║╚════██║██║
+	-- ██║ ╚═╝ ██║██║███████║╚██████╗
+	-- ╚═╝     ╚═╝╚═╝╚══════╝ ╚═════╝
+	{
+		"bennypowers/nvim-regexplainer",
+		requires = {
+			"nvim-treesitter/nvim-treesitter",
+			"MunifTanjim/nui.nvim"
+		},
+		init = function()
+			require("regexplainer").setup()
+		end
+	},
 	{
 		"nvim-telescope/telescope.nvim",
-		dependencies = { "nvim-lua/plenary.nvim" }
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"cljoly/telescope-repo.nvim",
+			"otavioschwanck/telescope-alternate"
+		},
+		init = function()
+			require("telescope").setup {
+				extensions = {
+					["repo"] = {
+						list = {
+							search_dirs = {
+								"~/Projects",
+								"~/Scripts"
+							}
+						}
+					},
+					["telescope-alternate"] = {
+						presets = {}
+					}
+				}
+			}
+			require("telescope").load_extension("repo")
+			require("telescope").load_extension("telescope-alternate")
+		end
 	},
 	{
 		"nvim-tree/nvim-tree.lua",
@@ -218,17 +387,6 @@ return {
 		end
 	},
 	{
-		"lewis6991/gitsigns.nvim",
-		init = function()
-			require("gitsigns").setup {
-				current_line_blame = true,
-				current_line_blame_opts = {
-					delay = 100
-				}
-			}
-		end
-	},
-	{
 		"echasnovski/mini.nvim",
 		init = function()
 			-- require("mini.animate").setup()
@@ -241,39 +399,72 @@ return {
 		end
 	},
 	{
-		"declancm/cinnamon.nvim",
+		"rcarriga/nvim-notify",
 		init = function()
-			require("cinnamon").setup {
-				extra_keymaps = true,
-				extended_keymaps = true
-			}
+			require("notify").setup()
 		end
 	},
 	{
-		"NvChad/nvim-colorizer.lua",
+		"folke/which-key.nvim",
 		init = function()
-			require("colorizer").setup()
+			vim.o.timeout = true
+			vim.o.timeoutlen = 300
+			require("which-key").setup()
 		end
 	},
-	{
-		"simrat39/rust-tools.nvim",
-		dependencies = { "neovim/nvim-lspconfig" },
-		init = function()
-			require("rust-tools").setup()
-		end
-	},
-	{
-		"ray-x/go.nvim",
-		dependencies = {
-			"ray-x/guihua.lua",
-			"neovim/nvim-lspconfig",
-			"nvim-treesitter/nvim-treesitter"
-		},
-		init = function()
-			require("go").setup()
-		end,
-		event = {"CmdlineEnter"},
-		ft = {"go", "gomod"},
-		build = ":lua require(\"go.install\").update_all_sync()"
-	}
+	-- {
+	-- 	"stevearc/dressing.nvim",
+	-- 	init = function()
+	-- 		require("dressing").setup()
+	-- 	end
+	-- }
+	-- {
+	-- 	"folke/noice.nvim",
+	-- 	dependencies = {
+	-- 		"MunifTanjim/nui.nvim",
+	-- 		"rcarriga/nvim-notify"
+	-- 	},
+	-- 	init = function()
+	-- 		require("noice").setup {
+	-- 			lsp = {
+	-- 				override = {
+	-- 					["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+	-- 					["vim.lsp.util.stylize_markdown"] = true
+	-- 				}
+	-- 			},
+	-- 			presets = {
+	-- 				bottom_search = true,
+	-- 				command_palette = true,
+	-- 				long_message_to_split = true,
+	-- 				inc_rename = true,
+	-- 				lsp_doc_border = true
+	-- 			},
+	-- 			views = {
+	-- 				cmdline_popup = {
+	-- 					position = {
+	-- 						col = "50%",
+	-- 						row = "45%"
+	-- 					},
+	-- 					size = {
+	-- 						height = "auto",
+	-- 						width = 60,
+	-- 					}
+	-- 				},
+	-- 				popup = {
+	-- 					positon = "auto"
+	-- 				},
+	-- 				popupmenu = {
+	-- 					border = {
+	-- 						padding = { 0, 1 },
+	-- 						style = "rounded"
+	-- 					},
+	-- 					relative = "editor",
+	-- 					win_options = {
+	-- 						winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" }
+	-- 					}
+	-- 				}
+	-- 			}
+	-- 		}
+	-- 	end
+	-- }
 }
