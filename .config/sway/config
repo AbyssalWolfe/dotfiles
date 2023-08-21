@@ -15,6 +15,10 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 set $term wezterm
+# Your preferred browser
+set $browser flatpak run org.mozilla.firefox
+# Your preferred screenshot tool
+set $screenshot grim -g "$(slurp)" | wl-copy
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -69,6 +73,12 @@ smart_gaps off
     # Start a terminal
     bindsym $mod+Return exec $term
 
+	# Start browser
+	bindsym $mod+Shift+b exec $browser
+
+	# Take screenshot
+	bindsym Print exec $screenshot
+
     # Kill focused window
     bindsym $mod+Shift+q kill
 
@@ -86,7 +96,7 @@ smart_gaps off
     bindsym $mod+Shift+c reload
 
     # Exit sway (logs you out of your Wayland session)
-    bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+    bindsym $mod+Shift+e exec swaymsg exit
 #
 # Moving around:
 #
@@ -228,7 +238,10 @@ client.focused_inactive "#9580ff" "#282828" "#ffffff" "#9580ff" "#9580ff"
 client.focused_tab_title "#9580ff" "#282828" "#ffffff" "#9580ff" "#9580ff"
 client.unfocused "#22212c" "#282828" "#ffffff" "#22212c" "#22212c"
 
+assign [class="FireFox"] workspace 2
 assign [class="LibreWolf"] workspace 2
+assign [app_id="firefox"] workspace 2
+assign [app_id="org.qutebrowser.qutebrowser"] workspace 2
 assign [app_id="mpv"] workspace 3
 
 seat seat0 xcursor_theme default 16

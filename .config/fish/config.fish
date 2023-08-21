@@ -31,6 +31,9 @@ set -gx BAT_THEME "Dracula Pro"
 set -gx CC "clang"
 set -gx CMAKE_GENERATOR "ninja"
 set -gx CXX "clang++"
+set -gx DEVKITARM "/opt/devkitpro/devkitARM"
+set -gx DEVKITPPC "/opt/devkitpro/devkitPPC"
+set -gx DEVKITPRO "/opt/devkitpro"
 set -gx EDITOR "nvim"
 set -gx FZF_DEFAULT_OPTS "--color=fg:#f8f8f2,bg:#22212c,hl:#9580ff,fg+:#ffffff,bg+:#2e2b3b,hl+:#9580ff,info:#ffca80,prompt:#8aff80,pointer:#ff80bf,marker:#ff80bf,spinner:#ffca80,header:#393649"
 set -gx GPG_TTY "$(tty)"
@@ -60,6 +63,11 @@ set -gx PNPM_HOME "$XDG_DATA_HOME/pnpm"
 set -gx RUSTUP_HOME "$XDG_DATA_HOME/rustup"
 set -gx TERMINFO "$XDG_DATA_HOME/terminfo"
 set -gx TERMINFO_DIRS "$XDG_DATA_HOME/terminfo:/usr/share/terminfo"
+if test $XDG_SESSION_TYPE = "wayland"
+	set -gx QT_QPA_PLATFORM "wayland"
+	set -gx QT_WAYLAND_DISABLE_WINDOWDECORATION 1
+	set -gx MOZ_ENABLE_WAYLAND 1
+end
 set -gx WGETRC "$XDG_CONFIG_HOME/wgetrc"
 # Create wgetrc with cache path if it doesn't already exist
 if ! test -e $WGETRC
@@ -83,6 +91,7 @@ fish_add_path "$GOBIN"
 fish_add_path "$XDG_DATA_HOME/perl5/bin"
 fish_add_path "$PNPM_HOME"
 fish_add_path "$(ruby -e 'print Gem.user_dir')/bin"
+fish_add_path "$DEVKITARM/bin"
 
 #  █████╗ ██╗     ██╗ █████╗ ███████╗███████╗███████╗
 # ██╔══██╗██║     ██║██╔══██╗██╔════╝██╔════╝██╔════╝
