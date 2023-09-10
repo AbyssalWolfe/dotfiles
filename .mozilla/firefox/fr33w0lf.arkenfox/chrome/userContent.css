@@ -1,0 +1,48 @@
+/* FirefoxGX Theme -- https://github.com/Godiesc/firefox-gx */
+
+/* ############# Required Files ############## */
+@import url(components/ogx_root-personal.css);
+@import url(components/ogx_UC-newtabpage.css);
+@import url(components/ogx_UC-settings-addons-pages.css);
+@import url(components/ogx_UC-addons-store.css);
+
+/* FirefoxGX Edits */
+
+/* Clean up New Tab page */
+@-moz-document url(chrome://browser/content/browser.xul), url(about:newtab), url(about:home), url(about:privatebrowsing) {
+	/* Dracula PRO background color */
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--lwt-main-image: none !important;
+			--lwt-private-image: none !important;
+		}
+		body {
+			--newtab-background-color: #22212c !important;
+		}
+	}
+
+	/* Remove New Tab logo */
+	.search-wrapper > .logo-and-wordmark,
+	/* Remove New Tab settings button */
+	.personalize-button,
+	/* Remove search suggestions */
+	#searchSuggestionTable {
+		display: none !important;
+	}
+
+	/* Center the search bar */
+	.outer-wrapper {
+		padding: 0 !important;
+		display: flex !important;
+		justify-content: center !important;
+		align-items: center !important;
+	}
+
+	main {
+		margin: 0 !important;
+	}
+
+	.search-inner-wrapper {
+		margin: 0 !important;
+	}
+}
