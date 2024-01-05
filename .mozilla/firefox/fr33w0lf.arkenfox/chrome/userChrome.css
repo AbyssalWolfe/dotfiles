@@ -29,8 +29,9 @@
 
 /* FirefoxGX Edits */
 
-/* Remove fading borders from bookmarks bar & nav bar */
+/* Remove fading borders & reduce padding of bookmarks bar to just below menu button */
 :root:not([chromehidden~="toolbar"]) #PersonalToolbar {
+	--padding-top-left-sidebar: 60px !important;
 	border-image: linear-gradient(to bottom, transparent calc(var(--tab-height-personal) + var(--windowed-top-padding, 0px) + 31px), var(--general-color) calc(var(--tab-height-personal) + var(--windowed-top-padding, 0px) + 31px)) 1 !important;
 }
 

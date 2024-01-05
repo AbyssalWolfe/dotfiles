@@ -8,6 +8,10 @@ user_pref("browser.startup.page", 1);
 user_pref("browser.startup.homepage", "about:home");
 // 0104
 user_pref("browser.newtabpage.enabled", true);
+// 0306
+user_pref("captivedetect.canonicalURL", "http://detectportal.firefox.com/canonical.html");
+user_pref("network.captive-portal-service.enabled", true);
+user_pref("network.connectivity-service.enabled", true);
 // 0801
 user_pref("keyword.enabled", true);
 // 2022
