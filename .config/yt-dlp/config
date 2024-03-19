@@ -7,5 +7,4 @@
 --extractor-args crunchyrollbeta:hardsub=None
 --netrc
 --remux-video mkv
---sponsorblock-remove all,-filler
 --sub-langs en.*
