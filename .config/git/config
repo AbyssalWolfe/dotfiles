@@ -1,8 +1,16 @@
+;  ██████╗ ██╗████████╗
+; ██╔════╝ ██║╚══██╔══╝
+; ██║  ███╗██║   ██║
+; ██║   ██║██║   ██║
+; ╚██████╔╝██║   ██║
+;  ╚═════╝ ╚═╝   ╚═╝
+
 [advice]
 	addIgnoredFile = false
 
 [commit]
 	gpgsign = true
+	template = ~/.config/git/message.txt
 
 [core]
 	autocrlf = input

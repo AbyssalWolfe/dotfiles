@@ -1,0 +1,5 @@
+Subject
+
+Multi-line description
+
+[Ticket: X]
