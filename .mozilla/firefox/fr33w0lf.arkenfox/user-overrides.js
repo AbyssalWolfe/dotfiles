@@ -59,6 +59,7 @@ user_pref("userChrome.tab.bottom_rounded_corner.all", true);
 user_pref("userChrome.tab.color_like_toolbar", true);
 user_pref("userChrome.tab.multi_selected", true);
 user_pref("userChrome.tab.bottom_rounded_corner", true);
+user_pref("firefoxgx.tab-shapes", true);
 
 /* Make it True (only one) the rule with the form of the tab you want */
 user_pref("userChrome.tab.bottom_rounded_corner.wave", true);
@@ -67,9 +68,21 @@ user_pref("userChrome.tab.bottom_rounded_corner.chrome", false);
 user_pref("userChrome.tab.bottom_rounded_corner.chrome_legacy", false);
 user_pref("userChrome.tab.bottom_rounded_corner.edge", false);
 
+/* Left sidebar */
+user_pref("firefoxgx.left-sidebar", true);
+
 //
 // Personal Edits
 //
 
 // Disable Tab Manager
 user_pref("browser.tabs.tabmanager.enabled", false);
+
+// Disable Firefox View
+user_pref("browser.tabs.firefox-view", false);
+
+// Disable warning on Ctrl+Q
+user_pref("browser.warnOnQuitShortcut", false);
+
+// Disable Pocket
+user_pref("extensions.pocket.enabled", false);
