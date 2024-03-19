@@ -16,7 +16,7 @@ set $right l
 # Your preferred terminal emulator
 set $term wezterm
 # Your preferred browser
-set $browser flatpak run org.mozilla.firefox
+set $browser firefox
 # Your preferred screenshot tool
 set $screenshot grim -g "$(slurp)" | wl-copy
 # Your preferred application launcher
@@ -233,21 +233,86 @@ bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 # Read `man 5 sway-bar` for more information about this section.
 bar swaybar_command waybar
 
+#
+# Theme
+#
 client.focused "#aa99ff" "#282828" "#ffffff" "#aa99ff" "#aa99ff"
 client.focused_inactive "#9580ff" "#282828" "#ffffff" "#9580ff" "#9580ff"
 client.focused_tab_title "#9580ff" "#282828" "#ffffff" "#9580ff" "#9580ff"
 client.unfocused "#22212c" "#282828" "#ffffff" "#22212c" "#22212c"
 
+#
+# Workspace Assignment
+#
+workspace 1 output eDP-1 DP-1
+workspace 2 output eDP-1 DP-1
+workspace 3 output eDP-1 DP-1
+workspace 4 output eDP-1 DP-1
+workspace 5 output DP-2 DP-1 eDP-1
+workspace 6 output DP-3 DP-1
+workspace 7 output DP-1 eDP-1
+workspace 8 output DP-1 eDP-1
+workspace 9 output DP-1 eDP-1
+workspace 0 output DP-1 eDP-1
 assign [class="FireFox"] workspace 2
 assign [class="LibreWolf"] workspace 2
 assign [app_id="firefox"] workspace 2
 assign [app_id="org.qutebrowser.qutebrowser"] workspace 2
 assign [app_id="mpv"] workspace 3
+assign [class="discord"] workspace 5
 
+#
+# Floating Windows
+#
+for_window [app_id="lxqt-policykit-agent"] floating enable
+for_window [title="Open a File or Directory"] floating enable
+for_window [title="Import Existing Project"] floating enable
+for_window [title="Please Confirm..."] floating enable
+for_window [title="Create Folder"] floating enable
+for_window [title="Create New Scene"] floating enable
+for_window [title="Create Script"] floating enable
+for_window [title="Create New Resource"] floating enable
+for_window [title="Create New Node"] floating enable
+for_window [title="Create Shader"] floating enable
+for_window [title="Project Settings (project.godot)"] floating enable
+for_window [title="Event Configuration"] floating enable
+for_window [title="Editor Settings"] floating enable
+
+#
+# Auto-Hiding Cursor
+#
 seat seat0 xcursor_theme default 16
 seat seat0 hide_cursor 5000
 seat seat0 hide_cursor when-typing enable
 
+#
+# Startup Applications
+#
+# Polkit Agent
+exec lxqt-policykit-agent
+# FireFox
+exec firefox
+# MPV
+exec mpv --no-terminal --input-ipc-server=/tmp/mpv.sock $argv &> /dev/null
+# Jellyfin MPV Shim
+exec jellyfin-mpv-shim
+# Discord
+exec discord
+
+#
+# Laptop Display
+#
 output eDP-1 scale 1
 
+#
+# Desktop Displays
+#
+output HDMI-A-2 disable
+output DP-1 pos 640 1080 mode 2560x1440@165HZ
+output DP-2 pos 0 0 mode 1920x1080@60HZ
+output DP-3 pos 1920 0 mode 1920x1080@60HZ
+
+#
+# System Config
+#
 include /etc/sway/config.d/*
