@@ -46,13 +46,14 @@
 @define-color mode #a89984;
 @define-color workspaces #9580ff;
 @define-color workspacesfocused #aa99ff;
-@define-color sound #8aff80;
-@define-color network #b16286;
-@define-color memory #8ec07c;
-@define-color cpu #98971a;
-@define-color temp #b8bb26;
+@define-color sound #ffff99;
+@define-color network #ffff80;
+@define-color memory #8aff80;
+@define-color cpu #80ffea;
+@define-color gpu #99ffee;
+@define-color temp #a2ff99;
 @define-color layout #689d6a;
-@define-color battery #a2ff99;
+@define-color battery #ffca80;
 @define-color date #ff9580;
 @define-color time #ffaa99;
 
@@ -70,7 +71,7 @@
 	background: transparent;
 	color: @light;
 	font-family: "Fira Code", "FiraCode Nerd Font";
-	font-size: 14pt;
+	font-size: 10pt;
 	font-weight: bold;
 }
 
@@ -219,61 +220,61 @@
 }
 
 #custom-arrow1 {
-	font-size: 21pt;
-	color: @sound;
+	font-size: 16pt;
+	color: @cpu;
 	background: transparent;
 }
 
 #custom-arrow2 {
-	font-size: 21pt;
-	color: @network;
-	background: @sound;
+	font-size: 16pt;
+	color: @gpu;
+	background: @cpu;
 }
 
 #custom-arrow3 {
-	font-size: 21pt;
+	font-size: 16pt;
 	color: @memory;
-	background: @network;
+	background: @gpu;
 }
 
 #custom-arrow4 {
-	font-size: 21pt;
-	color: @cpu;
+	font-size: 16pt;
+	color: @temp;
 	background: @memory;
 }
 
 #custom-arrow5 {
-	font-size: 21pt;
-	color: @sound;
-	background: transparent;
+	font-size: 16pt;
+	color: @network;
+	background: @temp;
 }
 
 #custom-arrow6 {
-	font-size: 21pt;
+	font-size: 16pt;
 	color: @sound;
-	background: transparent;
+	background: @network;
 }
 
 #custom-arrow7 {
-	font-size: 21pt;
+	font-size: 16pt;
 	color: @battery;
 	background: @sound;
 }
 
 #custom-arrow8 {
-	font-size: 21pt;
+	font-size: 16pt;
 	color: @date;
 	background: @battery;
 }
 
 #custom-arrow9 {
-	font-size: 21pt;
+	font-size: 16pt;
 	color: @time;
 	background: @date;
 }
 
 #custom-arrow10 {
-	font-size: 21pt;
+	font-size: 16pt;
 	color: @workspaces;
 	background: transparent;
 }

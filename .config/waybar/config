@@ -18,11 +18,16 @@
 	//],
 
 	"modules-right": [
-		//"custom/arrow1",
-		//"custom/arrow2",
-		//"custom/arrow3",
-		//"custom/arrow4",
-		//"custom/arrow5",
+		"custom/arrow1",
+		"cpu",
+		"custom/arrow2",
+		//"custom/gpu",
+		"custom/arrow3",
+		"memory",
+		"custom/arrow4",
+		"temperature",
+		"custom/arrow5",
+		"network",
 		"custom/arrow6",
 		"pulseaudio",
 		"custom/arrow7",
@@ -38,7 +43,7 @@
 	// -------------------------------------------------------------------------
 
 	"battery": {
-		"interval": 1,
+		"interval": 10,
 		"states": {
 			"warning": 30,
 			"critical": 15
@@ -56,8 +61,8 @@
 	},
 
 	"clock#time": {
-		"interval": 10,
-		"format": "{:%H:%M}",
+		"interval": 1,
+		"format": "{:%H:%M:%S}",
 		"tooltip": false
 	},
 
@@ -71,7 +76,7 @@
 	"cpu": {
 		"interval": 5,
 		"tooltip": false,
-		"format": " {usage}%", // Icon: microchip
+		"format": " {usage}%", // Icon: microchip
 		"states": {
 		  "warning": 70,
 		  "critical": 90
@@ -86,7 +91,7 @@
 
 	"memory": {
 		"interval": 5,
-		"format": " {}%", // Icon: memory
+		"format": " {}%", // Icon: memory
 		"states": {
 			"warning": 70,
 			"critical": 90
@@ -96,9 +101,8 @@
 	"network": {
 		"interval": 5,
 		// TODO: format-icons
-		"format-wifi": " {essid} ({signalStrength}%)", // Icon: wifi
-		//"format-ethernet": " {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
-		"format-ethernet": " {ifname}",
+		"format-wifi": "󰖩 {essid} ({signalStrength}%): {ipaddr}/{cidr}", // Icon: wifi
+		"format-ethernet": "󰈀 {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
 		"format-disconnected": "",
 		//"tooltip-format": "{ifname}: {ipaddr}",
 		"tooltip": false
@@ -138,9 +142,9 @@
 		"format-bluetooth": "{icon} {volume}%",
 		"format-muted": "",
 		"format-icons": {
-			"headphones": "",
+			"headphones": "󰋋",
 			"handsfree": "",
-			"headset": "",
+			"headset": "󰋎",
 			"phone": "",
 			"portable": "",
 			"car": "",
@@ -152,14 +156,13 @@
 	"temperature": {
 		"critical-threshold": 90,
 		"interval": 5,
-		//"format": "{icon} {temperatureC}°C",
-		"format": "{icon} {temperatureC}°",
+		"format": "{icon} {temperatureC}°C",
 		"format-icons": [
-			"", // Icon: temperature-empty
-			//"", // Icon: temperature-quarter
-			"", // Icon: temperature-half
-			//"", // Icon: temperature-three-quarters
-			""  // Icon: temperature-full
+			"", // Icon: temperature-empty
+			"", // Icon: temperature-quarter
+			"", // Icon: temperature-half
+			"", // Icon: temperature-three-quarters
+			""  // Icon: temperature-full
 		],
 		"tooltip": false
 	},
