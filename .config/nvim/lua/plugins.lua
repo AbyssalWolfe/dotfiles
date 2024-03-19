@@ -387,6 +387,10 @@ return {
 		end
 	},
 	{
+		"voldikss/vim-floaterm",
+		dependencies = { "https://github.com/ptzz/lf.vim" }
+	},
+	{
 		"echasnovski/mini.nvim",
 		init = function()
 			-- require("mini.animate").setup()

@@ -85,6 +85,8 @@ vim.keymap.set("n", "<C-d>", "<cmd>lua delete_current_buffer()<CR>", opts)
 vim.keymap.set("n", "<C-n>", ":bnext<CR>")
 vim.keymap.set("n", "<C-p>", ":bprevious<CR>")
 
+vim.keymap.set("n", "<leader>c", ":let @/ = \"\"<CR>")
+
 local builtin = require("telescope.builtin")
 
 vim.keymap.set("n", "<leader>ff", builtin.find_files, {})
