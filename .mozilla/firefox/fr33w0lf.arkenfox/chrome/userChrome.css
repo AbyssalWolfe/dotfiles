@@ -27,6 +27,11 @@
 
 /* FirefoxGX Edits */
 
+/* Remove border from bottom of browser nav toolbox */
+#navigator-toolbox {
+	border-bottom: none !important;
+}
+
 /* Remove fade from tab border */
 #TabsToolbar::before {
 	border-image: none !important;
