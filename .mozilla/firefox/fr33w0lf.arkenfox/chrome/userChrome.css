@@ -27,6 +27,16 @@
 
 /* FirefoxGX Edits */
 
+/* Remove fade from tab border */
+#TabsToolbar::before {
+	border-image: none !important;
+}
+
+/* Add border to bottom of navbar */
+#nav-bar {
+	border-bottom: 1px solid var(--general-color) !important;
+}
+
 /* Remove fading border & reduce padding of bookmarks bar */
 :root:not([chromehidden~="toolbar"]) #PersonalToolbar {
 	--padding-top-left-sidebar: 70px !important;
