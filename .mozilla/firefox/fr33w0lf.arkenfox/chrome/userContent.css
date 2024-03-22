@@ -10,17 +10,6 @@
 
 /* Clean up New Tab page */
 @-moz-document url(chrome://browser/content/browser.xul), url(about:newtab), url(about:home), url(about:privatebrowsing) {
-	/* Dracula PRO background color */
-	@media (prefers-color-scheme: dark) {
-		:root {
-			--lwt-main-image: none !important;
-			--lwt-private-image: none !important;
-		}
-		body {
-			--newtab-background-color: #22212c !important;
-		}
-	}
-
 	/* Remove New Tab logo */
 	.search-wrapper > .logo-and-wordmark,
 	/* Remove New Tab settings button */
@@ -42,7 +31,25 @@
 		margin: 0 !important;
 	}
 
+	.search-wrapper {
+		padding: 0 !important;
+	}
+
 	.search-inner-wrapper {
 		margin: 0 !important;
+		width: 100% !important;
+	}
+}
+
+/* Dracula PRO background color for about:* pages */
+@-moz-document url(chrome://browser/content/browser.xul), url(about:newtab), url(about:home), url(about:privatebrowsing), url(about:addons) {
+	@media (prefers-color-scheme: dark) {
+		:root {
+			--lwt-main-image: none !important;
+			--lwt-private-image: none !important;
+		}
+		body {
+			--newtab-background-color: #22212c !important;
+		}
 	}
 }
