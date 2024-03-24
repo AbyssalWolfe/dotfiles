@@ -27,6 +27,12 @@
 
 /* FirefoxGX Edits */
 
+/* Color overrides */
+:root {
+	--purple: #9580ff !important;
+	--general-color: var(--lwt-toolbarbutton-icon-fill-attention, var(--purple)) !important;
+}
+
 /* Color match nav toolbox border to other borders */
 #navigator-toolbox {
 	border-bottom: 1px solid var(--general-color) !important;

@@ -8,6 +8,12 @@
 
 /* FirefoxGX Edits */
 
+/* Color overrides */
+:root {
+	--purple: #9580ff !important;
+	--general-color: var(--lwt-toolbarbutton-icon-fill-attention, var(--purple)) !important;
+}
+
 /* Clean up New Tab page */
 @-moz-document url(chrome://browser/content/browser.xul), url(about:newtab), url(about:home), url(about:privatebrowsing) {
 	/* Remove New Tab logo */
