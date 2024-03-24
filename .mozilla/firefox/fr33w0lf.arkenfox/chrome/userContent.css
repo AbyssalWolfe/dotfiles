@@ -8,7 +8,7 @@
 
 /* FirefoxGX Edits */
 
-/* Color overrides */
+/* Set --purple to Dracula PRO purple, set --general-color to --purple */
 :root {
 	--purple: #9580ff !important;
 	--general-color: var(--lwt-toolbarbutton-icon-fill-attention, var(--purple)) !important;
@@ -47,15 +47,12 @@
 	}
 }
 
-/* Dracula PRO background color for about:* pages */
+/* Remove background image from about:* pages */
 @-moz-document url(chrome://browser/content/browser.xul), url(about:newtab), url(about:home), url(about:privatebrowsing), url(about:addons) {
 	@media (prefers-color-scheme: dark) {
 		:root {
 			--lwt-main-image: none !important;
 			--lwt-private-image: none !important;
-		}
-		body {
-			--newtab-background-color: #22212c !important;
 		}
 	}
 }

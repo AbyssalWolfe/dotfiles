@@ -27,7 +27,7 @@
 
 /* FirefoxGX Edits */
 
-/* Color overrides */
+/* Set --purple to Dracula PRO purple, set --general-color to --purple */
 :root {
 	--purple: #9580ff !important;
 	--general-color: var(--lwt-toolbarbutton-icon-fill-attention, var(--purple)) !important;
@@ -57,6 +57,11 @@
 /* Make pinned tabs icon-only */
 tab:is([pinned])[slected] .tab-context-line, tab:is([pinned]):not([slected]) .tab-context-line {
 	max-width: 0 !important;
+}
+
+/* Color match devtools splitter to other borders */
+#appcontent[devtoolstheme="dark"] {
+	--devtools-splitter-color: var(--general-color) !important;
 }
 
 /* General Edits */
