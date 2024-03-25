@@ -282,7 +282,7 @@ for_window [title="Editor Settings"] floating enable
 # Auto-Hiding Cursor
 #
 seat seat0 xcursor_theme default 16
-seat seat0 hide_cursor 5000
+seat seat0 hide_cursor 60000
 seat seat0 hide_cursor when-typing enable
 
 #
