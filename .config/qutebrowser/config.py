@@ -1,14 +1,19 @@
-import dracula.draw
+import os
+from urllib.request import urlopen
 
 config.load_autoconfig()
 
-dracula.draw.blood(c, {
-    'spacing':{
-        'vertical':6,
-        'horizontal':8
-    }
-})
+if not os.path.exists(config.configdir / "theme.py"):
+    theme = "https://raw.githubusercontent.com/catppuccin/qutebrowser/main/setup.py"
+    with urlopen(theme) as themehtml:
+        with open(config.configdir / "theme.py", "a") as file:
+            file.writelines(themehtml.read().decode("utf-8"))
+
+if os.path.exists(config.configdir / "theme.py"):
+    import theme
+
+    theme.setup(c, "macchiato", True)
 
 # Play videos in MPV
-config.bind(',f', 'hint links spawn --userscript play {hint-url}')
-config.bind(',F', 'spawn --userscript play {url}')
+config.bind(",f", "hint links spawn --userscript play {hint-url}")
+config.bind(",F", "spawn --userscript play {url}")

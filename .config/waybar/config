@@ -2,140 +2,107 @@
 	// -------------------------------------------------------------------------
 	// Global configuration
 	// -------------------------------------------------------------------------
-
 	"layer": "top",
 	"position": "top",
-	//"height": 12,
-
 	"modules-left": [
 		"sway/mode",
-		"sway/workspaces",
-		"custom/arrow10"
+		"sway/workspaces"
 	],
-
-	//"modules-center": [
-	//	"sway/window"
-	//],
-
+	"modules-center": [
+		"clock#date"
+	],
 	"modules-right": [
-		"custom/arrow1",
 		"cpu",
-		"custom/arrow2",
-		//"custom/gpu",
-		"custom/arrow3",
+		"custom/gpu",
 		"memory",
-		"custom/arrow4",
 		"temperature",
-		"custom/arrow5",
 		"network",
-		"custom/arrow6",
-		"pulseaudio",
-		"custom/arrow7",
 		"battery",
-		"custom/arrow8",
-		"clock#date",
-		"custom/arrow9",
+		"pulseaudio",
 		"clock#time"
 	],
-
 	// -------------------------------------------------------------------------
 	// Modules
 	// -------------------------------------------------------------------------
-
 	"battery": {
 		"interval": 10,
 		"states": {
 			"warning": 30,
 			"critical": 15
 		},
-		"format": " {capacity}%", // Icon: bolt
+		"format": " {capacity}%",
 		"format-discharging": "{icon} {capacity}%",
 		"format-icons": [
-			"",  // Icon: battery-empty
-			"", // Icon: battery-quarter
-			"", // Icon: battery-half
-			"", // Icon: battery-three-quarters
-			"" // Icon: battery-full
+			"",
+			"",
+			"",
+			"",
+			""
 		],
 		"tooltip": false
 	},
-
 	"clock#time": {
 		"interval": 1,
-		"format": "{:%H:%M:%S}",
+		"format": " {:%H:%M:%S}",
 		"tooltip": false
 	},
-
 	"clock#date": {
 		"interval": 20,
-		"format": "{:%e %b %Y}", // Icon: calendar-alt
-		//"tooltip-format": "{:%e %B %Y}"
+		"format": " {:%e %b %Y}",
 		"tooltip": false
 	},
-
 	"cpu": {
 		"interval": 5,
 		"tooltip": false,
-		"format": " {usage}%", // Icon: microchip
-		"states": {
-		  "warning": 70,
-		  "critical": 90
-		}
-	},
-
-	"sway/language": {
-		"format": " {}",
-		"min-length": 5,
-		"tooltip": false
-	},
-
-	"memory": {
-		"interval": 5,
-		"format": " {}%", // Icon: memory
+		"format": " {usage}%",
 		"states": {
 			"warning": 70,
 			"critical": 90
 		}
 	},
-
+	"sway/language": {
+		"format": " {}",
+		"min-length": 5,
+		"tooltip": false
+	},
+	"memory": {
+		"interval": 5,
+		"format": " {}%",
+		"states": {
+			"warning": 70,
+			"critical": 90
+		}
+	},
 	"network": {
 		"interval": 5,
-		// TODO: format-icons
-		"format-wifi": "󰖩 {essid} ({signalStrength}%): {ipaddr}/{cidr}", // Icon: wifi
-		"format-ethernet": "󰈀 {ifname}: {ipaddr}/{cidr}", // Icon: ethernet
+		"format-wifi": "󰖩 {essid} ({signalStrength}%): {ipaddr}/{cidr}",
+		"format-ethernet": "󰈀 {ifname}: {ipaddr}/{cidr}",
 		"format-disconnected": "",
-		//"tooltip-format": "{ifname}: {ipaddr}",
 		"tooltip": false
-		//"on-click": "cmst"
 	},
-
 	"sway/mode": {
-		"format": "<span style=\"italic\"> {}</span>", // Icon: expand-arrows-alt
+		"format": "<span style=\"italic\"> {}</span>",
 		"tooltip": false
 	},
-
 	"sway/window": {
 		"format": "{}",
 		"max-length": 30,
 		"tooltip": false
 	},
-
 	"sway/workspaces": {
 		"all-outputs": false,
 		"disable-scroll": false,
-		"format": "{name}",
+		"format": "{icon} {name}",
 		"format-icons": {
-			"1:www": "龜", // Icon: firefox-browser
-			"2:mail": "", // Icon: mail
-			"3:editor": "", // Icon: code
-			"4:terminals": "", // Icon: terminal
-			"5:portal": "", // Icon: terminal
-			"urgent": "",
-			"focused": "",
+			"1": "",
+			"2": "",
+			"3": "",
+			"5": "",
+			"10": "",
+			"urgent": "",
 			"default": ""
 		}
 	},
-
 	"pulseaudio": {
 		"scroll-step": 1,
 		"format": "{icon} {volume}%",
@@ -148,81 +115,36 @@
 			"phone": "",
 			"portable": "",
 			"car": "",
-			"default": ["", ""]
+			"default": [
+				"",
+				""
+			]
 		},
 		"on-click": "pavucontrol"
 	},
-
 	"temperature": {
+		"hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
 		"critical-threshold": 90,
 		"interval": 5,
 		"format": "{icon} {temperatureC}°C",
 		"format-icons": [
-			"", // Icon: temperature-empty
-			"", // Icon: temperature-quarter
-			"", // Icon: temperature-half
-			"", // Icon: temperature-three-quarters
-			""  // Icon: temperature-full
+			"",
+			"",
+			"",
+			"",
+			""
 		],
 		"tooltip": false
 	},
-
 	"sndio": {
 		"format": " {}%"
 	},
-
 	"tray": {
 		"icon-size": 21
-		//"spacing": 10
 	},
-
-	"custom/arrow1": {
-		"format": "",
-		"tooltip": false
-	},
-
-	"custom/arrow2": {
-		"format": "",
-		"tooltip": false
-	},
-
-	"custom/arrow3": {
-		"format": "",
-		"tooltip": false
-	},
-
-	"custom/arrow4": {
-		"format": "",
-		"tooltip": false
-	},
-
-	"custom/arrow5": {
-		"format": "",
-		"tooltip": false
-	},
-
-	"custom/arrow6": {
-		"format": "",
-		"tooltip": false
-	},
-
-	"custom/arrow7": {
-		"format": "",
-		"tooltip": false
-	},
-
-	"custom/arrow8": {
-		"format": "",
-		"tooltip": false
-	},
-
-	"custom/arrow9": {
-		"format": "",
-		"tooltip": false
-	},
-
-	"custom/arrow10": {
-		"format": "",
-		"tooltip": false
+	"custom/gpu": {
+		"exec": "cat /sys/class/hwmon/hwmon0/device/gpu_busy_percent",
+		"format": "󰢮 {}%",
+		"interval": 5
 	}
 }

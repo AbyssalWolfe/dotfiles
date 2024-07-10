@@ -6,32 +6,6 @@
  *
  * =========================================================================== */
 
-/* -----------------------------------------------------------------------------
- * Keyframes
- * -------------------------------------------------------------------------- */
-
-@keyframes blink-warning {
-	70% {
-		color: @light;
-	}
-
-	to {
-		color: @light;
-		background-color: @warning;
-	}
-}
-
-@keyframes blink-critical {
-	70% {
-		color: @light;
-	}
-
-	to {
-		color: @light;
-		background-color: @critical;
-	}
-}
-
 
 /* -----------------------------------------------------------------------------
  * Styles
@@ -39,23 +13,32 @@
 
 /* COLORS */
 
-@define-color light #ebdbb2;
-@define-color dark #282828;
-@define-color warning #fabd2f;
-@define-color critical #cc241d;
-@define-color mode #a89984;
-@define-color workspaces #9580ff;
-@define-color workspacesfocused #aa99ff;
-@define-color sound #ffff99;
-@define-color network #ffff80;
-@define-color memory #8aff80;
-@define-color cpu #80ffea;
-@define-color gpu #99ffee;
-@define-color temp #a2ff99;
-@define-color layout #689d6a;
-@define-color battery #ffca80;
-@define-color date #ff9580;
-@define-color time #ffaa99;
+@define-color rosewater #f4dbd6;
+@define-color flamingo #f0c6c6;
+@define-color pink #f5bde6;
+@define-color mauve #c6a0f6;
+@define-color red #ed8796;
+@define-color maroon #ee99a0;
+@define-color peach #f5a97f;
+@define-color yellow #eed49f;
+@define-color green #a6da95;
+@define-color teal #8bd5ca;
+@define-color sky #91d7e3;
+@define-color sapphire #7dc4e4;
+@define-color blue #8aadf4;
+@define-color lavender #b7bdf8;
+@define-color text #cad3f5;
+@define-color subtext1 #b8c0e0;
+@define-color subtext0 #a5adcb;
+@define-color overlay2 #939ab7;
+@define-color overlay1 #8087a2;
+@define-color overlay0 #6e738d;
+@define-color surface2 #5b6078;
+@define-color surface1 #494d64;
+@define-color surface0 #363a4f;
+@define-color base rgba(29, 32, 47, 0.7);
+@define-color mantle #1e2030;
+@define-color crust #181926;
 
 /* Reset all styles */
 * {
@@ -69,10 +52,23 @@
 /* The whole bar */
 #waybar {
 	background: transparent;
-	color: @light;
+	color: @text;
 	font-family: "Fira Code", "FiraCode Nerd Font";
-	font-size: 10pt;
+	font-size: 11pt;
 	font-weight: bold;
+}
+
+/* Module groups */
+.modules-left {
+	margin: 10px 0 0 10px;
+}
+
+.modules-center {
+	margin: 10px 0 0 0;
+}
+
+.modules-right {
+	margin: 10px 10px 0 0;
 }
 
 /* Each module */
@@ -87,37 +83,21 @@
 #temperature,
 #custom-alsa,
 #sndio,
-#tray {
-	padding-left: 10px;
-	padding-right: 10px;
+#tray,
+#custom-gpu {
+	border-top: 2px solid @mantle;
+	border-bottom: 2px solid @mantle;
+	padding: 3px 10px;
+	background: @base;
 }
-
-/* Each module that should blink */
-/*#mode,
-#memory,
-#temperature,
-#battery {
-	animation-timing-function: linear;
-	animation-iteration-count: infinite;
-	animation-direction: alternate;
-}*/
 
 /* Each critical module */
 #memory.critical,
 #cpu.critical,
 #temperature.critical,
 #battery.critical {
-	color: @critical;
+	color: @red;
 }
-
-/* Each critical that should blink */
-/*#mode,
-#memory.critical,
-#temperature.critical,
-#battery.critical.discharging {
-	animation-name: blink-critical;
-	animation-duration: 2s;
-}*/
 
 /* Each warning */
 #network.disconnected,
@@ -125,156 +105,107 @@
 #cpu.warning,
 #temperature.warning,
 #battery.warning {
-	color: @warning;
+	color: @peach;
 }
 
-/* Each warning that should blink */
-#battery.warning.discharging {
-	animation-name: blink-warning;
-	animation-duration: 3s;
+/* And now modules themselves */
+#mode {
+	margin-right: 10px;
+	border: 2px solid @mauve;
+	border-radius: 20px;
+	color: @mauve;
 }
 
-/* And now modules themselves in their respective order */
-
-#mode { /* Shown current Sway mode (resize etc.) */
-	color: @light;
-	background: @mode;
-}
-
-/* Workspaces stuff */
 #workspaces button {
-	/*font-weight: bold;*/
-	padding-left: 4px;
-	padding-right: 4px;
-	color: @dark;
-	background: @workspaces;
+	border-top: 2px solid @text;
+	border-bottom: 2px solid @text;
+	padding: 0 4px;
+	color: @text;
+	background: @base;
+}
+
+#workspaces button:first-child {
+	border-left: 2px solid @text;
+	border-radius: 20px 0 0 20px;
+}
+
+#workspaces button:last-child {
+	border-right: 2px solid @text;
+	border-radius: 0 20px 20px 0;
+}
+
+#workspaces button:only-child {
+	border-radius: 20px;
 }
 
 #workspaces button.focused {
-	background: @workspacesfocused;
+	border-color: @mauve;
+	color: @mauve;
 }
 
 #workspaces button.urgent {
-	border-color: @critical;
-	color: @critical;
+	border-color: @red;
+	color: @red;
 }
 
 #window {
-	margin-right: 40px;
-	margin-left: 40px;
+	margin: 0 40px;
 }
 
 #custom-alsa,
 #pulseaudio,
 #sndio {
-	background: @sound;
-	color: @dark;
+	margin-left: 10px;
+	border: 2px solid @peach;
+	border-radius: 20px;
+	color: @peach;
 }
 
 #network {
-	background: @network;
-	color: @dark;
+	border-right: 2px solid @yellow;
+	border-radius: 0 20px 20px 0;
+	border-color: @yellow;
+	color: @yellow;
 }
 
 #memory {
-	background: @memory;
-	color: @dark;
+	border-color: @teal;
+	color: @teal;
 }
 
 #cpu {
-	background: @cpu;
-	color: @dark;
+	border-left: 2px solid @sapphire;
+	border-radius: 20px 0 0 20px;
+	border-color: @sapphire;
+	color: @sapphire;
 }
 
 #temperature {
-	background: @temp;
-	color: @dark;
-}
-
-#language {
-	background: @layout;
-	color: @dark;
+	border-color: @green;
+	color: @green;
 }
 
 #battery {
-	background: @battery;
-	color: @dark;
-}
-
-#tray {
-	background: @date;
+	margin-left: 10px;
+	border: 2px solid @green;
+	border-radius: 20px;
+	color: @green;
 }
 
 #clock.date {
-	background: @date;
-	color: @dark;
+	border: 2px solid @pink;
+	border-radius: 20px;
+	color: @pink;
 }
 
 #clock.time {
-	background: @time;
-	color: @dark;
+	margin-left: 10px;
+	border: 2px solid @maroon;
+	border-radius: 20px;
+	color: @maroon;
 }
 
-#pulseaudio.muted {
-	/* No styles */
-}
-
-#custom-arrow1 {
-	font-size: 16pt;
-	color: @cpu;
-	background: transparent;
-}
-
-#custom-arrow2 {
-	font-size: 16pt;
-	color: @gpu;
-	background: @cpu;
-}
-
-#custom-arrow3 {
-	font-size: 16pt;
-	color: @memory;
-	background: @gpu;
-}
-
-#custom-arrow4 {
-	font-size: 16pt;
-	color: @temp;
-	background: @memory;
-}
-
-#custom-arrow5 {
-	font-size: 16pt;
-	color: @network;
-	background: @temp;
-}
-
-#custom-arrow6 {
-	font-size: 16pt;
-	color: @sound;
-	background: @network;
-}
-
-#custom-arrow7 {
-	font-size: 16pt;
-	color: @battery;
-	background: @sound;
-}
-
-#custom-arrow8 {
-	font-size: 16pt;
-	color: @date;
-	background: @battery;
-}
-
-#custom-arrow9 {
-	font-size: 16pt;
-	color: @time;
-	background: @date;
-}
-
-#custom-arrow10 {
-	font-size: 16pt;
-	color: @workspaces;
-	background: transparent;
+#custom-gpu {
+	border-color: @sky;
+	color: @sky;
 }

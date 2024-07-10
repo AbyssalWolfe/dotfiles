@@ -23,6 +23,33 @@ set $screenshot grim -g "$(slurp)" | wl-copy
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu wofi -I --show=run | xargs swaymsg exec --
+# Colors
+set $rosewater #f4dbd6
+set $flamingo #f0c6c6
+set $pink #f5bde6
+set $mauve #c6a0f6
+set $red #ed8796
+set $maroon #ee99a0
+set $peach #f5a97f
+set $yellow #eed49f
+set $green #a6da95
+set $teal #8bd5ca
+set $sky #91d7e3
+set $sapphire #7dc4e4
+set $blue #8aadf4
+set $lavender #b7bdf8
+set $text #cad3f5
+set $subtext1 #b8c0e0
+set $subtext0 #a5adcb
+set $overlay2 #939ab7
+set $overlay1 #8087a2
+set $overlay0 #6e738d
+set $surface2 #5b6078
+set $surface1 #494d64
+set $surface0 #363a4f
+set $base #24273a
+set $mantle #1e2030
+set $crust #181926
 
 ### Output configuration
 #
@@ -236,10 +263,13 @@ bar swaybar_command waybar
 #
 # Theme
 #
-client.focused "#aa99ff" "#282828" "#ffffff" "#aa99ff" "#aa99ff"
-client.focused_inactive "#9580ff" "#282828" "#ffffff" "#9580ff" "#9580ff"
-client.focused_tab_title "#9580ff" "#282828" "#ffffff" "#9580ff" "#9580ff"
-client.unfocused "#22212c" "#282828" "#ffffff" "#22212c" "#22212c"
+client.focused $mauve $base $text $mauve $mauve
+client.focused_inactive $lavender $base $text $lavender $lavender
+client.focused_tab_title $lavender $base $text $lavender $lavender
+client.unfocused $overlay0 $base $text $overlay0 $overlay0
+client.urgent $red $base $red $overlay0 $red
+client.placeholder $overlay0 $base $text $overlay0 $overlay0
+client.background $base
 
 #
 # Workspace Assignment
@@ -282,7 +312,7 @@ for_window [title="Editor Settings"] floating enable
 # Auto-Hiding Cursor
 #
 seat seat0 xcursor_theme default 16
-seat seat0 hide_cursor 60000
+#seat seat0 hide_cursor 60000
 seat seat0 hide_cursor when-typing enable
 
 #
