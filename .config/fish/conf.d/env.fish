@@ -23,6 +23,7 @@ set -Ux FZF_DEFAULT_OPTS "\
 --color=marker:#f4dbd6,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796"
 set -gx GPG_TTY "$(tty)"
 set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
+set -gx MANROFFOPT -c
 set -gx VISUAL nvim
 #set -gx WLR_DRM_DEVICES="/dev/dri/card1"
 set -gx XDG_CACHE_HOME "$HOME/.cache"
