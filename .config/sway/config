@@ -290,6 +290,9 @@ assign [app_id="firefox"] workspace 2
 assign [app_id="org.qutebrowser.qutebrowser"] workspace 2
 assign [app_id="mpv"] workspace 3
 assign [class="discord"] workspace 5
+assign [app_id="WebCord"] workspace 5
+assign [app_id="virt-manager"] workspace 10
+assign [app_id="looking-glass-client"] workspace 10
 
 #
 # Floating Windows
@@ -327,7 +330,7 @@ exec mpv --no-terminal --input-ipc-server=/tmp/mpv.sock $argv &> /dev/null
 # Jellyfin MPV Shim
 exec jellyfin-mpv-shim
 # Discord
-exec discord
+exec webcord --ozone-platform=wayland
 
 #
 # Laptop Display
