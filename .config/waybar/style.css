@@ -13,32 +13,29 @@
 
 /* COLORS */
 
-@define-color rosewater #f4dbd6;
-@define-color flamingo #f0c6c6;
-@define-color pink #f5bde6;
-@define-color mauve #c6a0f6;
-@define-color red #ed8796;
-@define-color maroon #ee99a0;
-@define-color peach #f5a97f;
-@define-color yellow #eed49f;
-@define-color green #a6da95;
-@define-color teal #8bd5ca;
-@define-color sky #91d7e3;
-@define-color sapphire #7dc4e4;
-@define-color blue #8aadf4;
-@define-color lavender #b7bdf8;
-@define-color text #cad3f5;
-@define-color subtext1 #b8c0e0;
-@define-color subtext0 #a5adcb;
-@define-color overlay2 #939ab7;
-@define-color overlay1 #8087a2;
-@define-color overlay0 #6e738d;
-@define-color surface2 #5b6078;
-@define-color surface1 #494d64;
-@define-color surface0 #363a4f;
-@define-color base rgba(29, 32, 47, 0.7);
-@define-color mantle #1e2030;
-@define-color crust #181926;
+@define-color fg #f8f8f2;
+@define-color fglight #ffffff;
+@define-color bgligher #393649;
+@define-color bglight #2e2b3b;
+@define-color bg rgba(34, 33, 44, 0.7);
+@define-color bgdark #17161d;
+@define-color bgdarker #0b0b0f;
+@define-color comment #7970a9;
+@define-color selection #454158;
+@define-color subtle #424450;
+@define-color cyan #80ffea;
+@define-color bright_cyan #99ffee;
+@define-color green #8aff80;
+@define-color bright_green #a2ff99;
+@define-color orange #ffca80;
+@define-color pink #ff80bf;
+@define-color bright_pink #ff99cc;
+@define-color purple #9580ff;
+@define-color bright_purple #aa99ff;
+@define-color red #ff9580;
+@define-color bright_red #ffaa99;
+@define-color yellow #ffff80;
+@define-color bright_yellow #ffff99;
 
 /* Reset all styles */
 * {
@@ -52,7 +49,7 @@
 /* The whole bar */
 #waybar {
 	background: transparent;
-	color: @text;
+	color: @fg;
 	font-family: "Fira Code", "FiraCode Nerd Font";
 	font-size: 11pt;
 	font-weight: bold;
@@ -88,7 +85,7 @@
 	border-top: 2px solid @mantle;
 	border-bottom: 2px solid @mantle;
 	padding: 3px 10px;
-	background: @base;
+	background: @bg;
 }
 
 /* Each critical module */
@@ -105,32 +102,32 @@
 #cpu.warning,
 #temperature.warning,
 #battery.warning {
-	color: @peach;
+	color: @orange;
 }
 
 /* And now modules themselves */
 #mode {
 	margin-right: 10px;
-	border: 2px solid @mauve;
+	border: 2px solid @purple;
 	border-radius: 20px;
-	color: @mauve;
+	color: @purple;
 }
 
 #workspaces button {
-	border-top: 2px solid @text;
-	border-bottom: 2px solid @text;
+	border-top: 2px solid @fg;
+	border-bottom: 2px solid @fg;
 	padding: 0 4px;
-	color: @text;
-	background: @base;
+	color: @fg;
+	background: @bg;
 }
 
 #workspaces button:first-child {
-	border-left: 2px solid @text;
+	border-left: 2px solid @fg;
 	border-radius: 20px 0 0 20px;
 }
 
 #workspaces button:last-child {
-	border-right: 2px solid @text;
+	border-right: 2px solid @fg;
 	border-radius: 0 20px 20px 0;
 }
 
@@ -139,8 +136,8 @@
 }
 
 #workspaces button.focused {
-	border-color: @mauve;
-	color: @mauve;
+	border-color: @purple;
+	color: @purple;
 }
 
 #workspaces button.urgent {
@@ -156,33 +153,33 @@
 #pulseaudio,
 #sndio {
 	margin-left: 10px;
-	border: 2px solid @peach;
+	border: 2px solid @orange;
 	border-radius: 20px;
-	color: @peach;
+	color: @orange;
 }
 
 #network {
-	border-right: 2px solid @yellow;
+	border-right: 2px solid @birght_yellow;
 	border-radius: 0 20px 20px 0;
-	border-color: @yellow;
-	color: @yellow;
+	border-color: @bright_yellow;
+	color: @bright_yellow;
 }
 
 #memory {
-	border-color: @teal;
-	color: @teal;
+	border-color: @green;
+	color: @green;
 }
 
 #cpu {
-	border-left: 2px solid @sapphire;
+	border-left: 2px solid @bright_cyan;
 	border-radius: 20px 0 0 20px;
-	border-color: @sapphire;
-	color: @sapphire;
+	border-color: @bright_cyan;
+	color: @bright_cyan;
 }
 
 #temperature {
-	border-color: @green;
-	color: @green;
+	border-color: @bright_green;
+	color: @bright_green;
 }
 
 #battery {
@@ -200,12 +197,12 @@
 
 #clock.time {
 	margin-left: 10px;
-	border: 2px solid @maroon;
+	border: 2px solid @red;
 	border-radius: 20px;
-	color: @maroon;
+	color: @red;
 }
 
 #custom-gpu {
-	border-color: @sky;
-	color: @sky;
+	border-color: @cyan;
+	color: @cyan;
 }

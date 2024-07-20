@@ -47,10 +47,14 @@
 	}
 }
 
-/* Remove background image from about:* pages */
-@-moz-document url(chrome://browser/content/browser.xul), url(about:newtab), url(about:home), url(about:privatebrowsing), url(about:addons) {
+/* Remove background image from and adjust colors on about:*, chrome://* and resource://* pages */
+@-moz-document url-prefix("about:"), url-prefix("chrome://"), url-prefix("resource://") {
 	@media (prefers-color-scheme: dark) {
 		:root {
+			--contrast-color: #f8f8f2 !important;
+			--in-content-page-background: #22212c !important;
+			--in-content-box-background: #232b3b !important;
+			--in-content-box-border-color: #9580ff !important;
 			--lwt-main-image: none !important;
 			--lwt-private-image: none !important;
 		}

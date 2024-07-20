@@ -1,7 +1,7 @@
 local wezterm = require("wezterm")
 
 return {
-	color_scheme = "Catppuccin Macchiato",
+	color_scheme = "Dracula PRO",
 	enable_scroll_bar = false,
 	enable_tab_bar = false,
 	font = wezterm.font({

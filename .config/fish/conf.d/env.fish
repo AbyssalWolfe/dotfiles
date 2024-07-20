@@ -8,24 +8,22 @@
 # Remove greeting message
 set -g fish_greeting
 
-set -gx BAT_THEME "Catppuccin Macchiato"
+set -gx BAT_THEME "Dracula Pro"
 set -gx CC clang
 set -gx CMAKE_GENERATOR ninja
 set -gx CXX "clang++"
 set -gx DEVKITARM /opt/devkitpro/devkitARM
 set -gx DEVKITPPC /opt/devkitpro/devkitPPC
 set -gx DEVKITPRO /opt/devkitpro
-#set -gx DRI_PRIME "pci-0000_0d_00_0"
 set -gx EDITOR nvim
 set -Ux FZF_DEFAULT_OPTS "\
---color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
---color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
---color=marker:#f4dbd6,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796"
+--color=bg:#22212c,bg+:#2e2b3b,fg:#f8f8f2,fg+:#ffffff \
+--color=hl:#9580ff,hl+:#9580ff,info:#ffca80,prompt:#8aff80 \
+--color=pointer:#ff80bf,marker:#ff80bf,spinner:#ffca80,header:#393649"
 set -gx GPG_TTY "$(tty)"
 set -gx MANPAGER "sh -c 'col -bx | bat -l man -p'"
 set -gx MANROFFOPT -c
 set -gx VISUAL nvim
-#set -gx WLR_DRM_DEVICES="/dev/dri/card1"
 set -gx XDG_CACHE_HOME "$HOME/.cache"
 set -gx XDG_CONFIG_HOME "$HOME/.config"
 set -gx XDG_DATA_HOME "$HOME/.local/share"

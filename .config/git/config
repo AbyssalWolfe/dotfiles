@@ -17,14 +17,11 @@
 	editor = nvim
 	pager = delta
 
-[include]
-	path = catppuccin.gitconfig
-
 [delta]
-	features = catppuccin-macchiato
 	light = false
 	line-numbers = true
 	navigate = true
+	syntax-theme = Dracula Pro
 
 [diff]
 	colorMoved = default

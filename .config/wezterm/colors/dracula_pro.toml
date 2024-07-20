@@ -1,0 +1,80 @@
+[colors]
+ansi = [
+	"#454158",
+	"#ff9580",
+	"#8aff80",
+	"#ffff80",
+	"#9580ff",
+	"#ff80bf",
+	"#80ffea",
+	"#f8f8f2",
+]
+background = "#22212c"
+brights = [
+	"#7970a9",
+	"#ffaa99",
+	"#a2ff99",
+	"#ffff99",
+	"#aa99ff",
+	"#ff99cc",
+	"#99ffee",
+	"#ffffff",
+]
+compose_cursor = "#ffb86c"
+cursor_bg = "#f8f8f2"
+cursor_border = "#f8f8f2"
+cursor_fg = "#454158"
+foreground = "#f8f8f2"
+scrollbar_thumb = "#44475a"
+selection_bg = "rgba(69 65 88 128)"
+selection_fg = "rgba(248 248 242 0)"
+split = "#6272a4"
+
+[colors.indexed]
+
+[colors.tab_bar]
+background = "#282a36"
+
+[colors.tab_bar.active_tab]
+bg_color = "#bd93f9"
+fg_color = "#282a36"
+intensity = "Normal"
+italic = false
+strikethrough = false
+underline = "None"
+
+[colors.tab_bar.inactive_tab]
+bg_color = "#282a36"
+fg_color = "#f8f8f2"
+intensity = "Normal"
+italic = false
+strikethrough = false
+underline = "None"
+
+[colors.tab_bar.inactive_tab_hover]
+bg_color = "#6272a4"
+fg_color = "#f8f8f2"
+intensity = "Normal"
+italic = true
+strikethrough = false
+underline = "None"
+
+[colors.tab_bar.new_tab]
+bg_color = "#282a36"
+fg_color = "#f8f8f2"
+intensity = "Normal"
+italic = false
+strikethrough = false
+underline = "None"
+
+[colors.tab_bar.new_tab_hover]
+bg_color = "#ff79c6"
+fg_color = "#f8f8f2"
+intensity = "Normal"
+italic = true
+strikethrough = false
+underline = "None"
+
+[metadata]
+aliases = []
+name = "Dracula PRO"

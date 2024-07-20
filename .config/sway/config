@@ -24,32 +24,29 @@ set $screenshot grim -g "$(slurp)" | wl-copy
 # on the original workspace that the command was run on.
 set $menu wofi -I --show=run | xargs swaymsg exec --
 # Colors
-set $rosewater #f4dbd6
-set $flamingo #f0c6c6
-set $pink #f5bde6
-set $mauve #c6a0f6
-set $red #ed8796
-set $maroon #ee99a0
-set $peach #f5a97f
-set $yellow #eed49f
-set $green #a6da95
-set $teal #8bd5ca
-set $sky #91d7e3
-set $sapphire #7dc4e4
-set $blue #8aadf4
-set $lavender #b7bdf8
-set $text #cad3f5
-set $subtext1 #b8c0e0
-set $subtext0 #a5adcb
-set $overlay2 #939ab7
-set $overlay1 #8087a2
-set $overlay0 #6e738d
-set $surface2 #5b6078
-set $surface1 #494d64
-set $surface0 #363a4f
-set $base #24273a
-set $mantle #1e2030
-set $crust #181926
+set $fg #f8f8f2
+set $fglight #ffffff
+set $bgligher #393649
+set $bglight #2e2b3b
+set $bg #22212c
+set $bgdark #17161d
+set $bgdarker #0b0b0f
+set $comment #7970a9
+set $selection #454158
+set $subtle #424450
+set $cyan #80ffea
+set $bright_cyan #99ffee
+set $green #8aff80
+set $bright_green #a2ff99
+set $orange #ffca80
+set $pink #ff80bf
+set $bright_pink #ff99cc
+set $purple #9580ff
+set $bright_purple #aa99ff
+set $red #ff9580
+set $bright_red #ffaa99
+set $yellow #ffff80
+set $bright_yellow #ffff99
 
 ### Output configuration
 #
@@ -263,13 +260,13 @@ bar swaybar_command waybar
 #
 # Theme
 #
-client.focused $mauve $base $text $mauve $mauve
-client.focused_inactive $lavender $base $text $lavender $lavender
-client.focused_tab_title $lavender $base $text $lavender $lavender
-client.unfocused $overlay0 $base $text $overlay0 $overlay0
-client.urgent $red $base $red $overlay0 $red
-client.placeholder $overlay0 $base $text $overlay0 $overlay0
-client.background $base
+client.focused $purple $bg $fg $purple $purple
+client.focused_inactive $purple $bg $fg $purple $purple
+client.focused_tab_title $purple $bg $fg $purple $purple
+client.unfocused $bgligher $bg $fg $bgligher $bgligher
+client.urgent $red $bg $red $bgligher $red
+client.placeholder $bgligher $bg $fg $bgligher $bgligher
+client.background $bg
 
 #
 # Workspace Assignment
