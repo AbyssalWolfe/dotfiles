@@ -30,10 +30,10 @@ return {
 					gutter_fg = "#393649",
 					nontext = "#424450",
 				},
-				overrides = {
-					Special = { fg = dracula.colors().green, italic = false },
-				},
-				transparent_bg = true,
+				italic_comment = true,
+				overrides = {},
+				show_end_of_buffer = true,
+				transparent_bg = false,
 			})
 		end,
 	},

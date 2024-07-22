@@ -64,6 +64,7 @@ alias grup="git remote update"
 alias gru="git reset --"
 alias gs="git status"
 alias gsh="git show"
+alias gsma="git submodule add"
 alias gsmi="git submodule init"
 alias gsmu="git submodule update"
 alias gsta="git stash apply"
@@ -87,30 +88,30 @@ alias l="lsd -a"
 alias ll="lsd -la"
 alias lfc="lfcd"
 if test -e /etc/os-release
-	switch (grep -oP "(?<=^ID=).+" /etc/os-release | tr -d '"')
-		case arch manjaro steamos
-			if command -q paru
-				alias pkgi="paru -S"
-				alias pkgr="paru -Rnsc"
-				alias pkgs="paru -Ss"
-				alias pkgu="paru -Syu"
-			else
-				alias pkgi="sudo pacman -S"
-				alias pkgr="sudo pacman -Rnsc"
-				alias pkgs="sudo pacman -Ss"
-				alias pkgu="sudo pacman -Syu"
-			end
-		case debian ubuntu
-			alias pkgi="sudo apt update && sudo apt install"
-			alias pkgr="sudo apt remove"
-			alias pkgs="sudo apt update && sudo apt search"
-			alias pkgu="sudo apt update && sudo apt upgrade"
-		case fedora
-			alias pkgi="sudo dnf install"
-			alias pkgr="sudo dnf remove"
-			alias pkgs="sudo dnf search"
-			alias pkgu="sudo dnf upgrade"
-	end
+    switch (grep -oP "(?<=^ID=).+" /etc/os-release | tr -d '"')
+        case arch manjaro steamos
+            if command -q paru
+                alias pkgi="paru -S"
+                alias pkgr="paru -Rnsc"
+                alias pkgs="paru -Ss"
+                alias pkgu="paru -Syu"
+            else
+                alias pkgi="sudo pacman -S"
+                alias pkgr="sudo pacman -Rnsc"
+                alias pkgs="sudo pacman -Ss"
+                alias pkgu="sudo pacman -Syu"
+            end
+        case debian ubuntu
+            alias pkgi="sudo apt update && sudo apt install"
+            alias pkgr="sudo apt remove"
+            alias pkgs="sudo apt update && sudo apt search"
+            alias pkgu="sudo apt update && sudo apt upgrade"
+        case fedora
+            alias pkgi="sudo dnf install"
+            alias pkgr="sudo dnf remove"
+            alias pkgs="sudo dnf search"
+            alias pkgu="sudo dnf upgrade"
+    end
 end
 alias v="$EDITOR"
 alias x="atool -x"
