@@ -2,6 +2,7 @@ local wezterm = require("wezterm")
 
 return {
 	color_scheme = "Dracula PRO",
+	disable_default_mouse_bindings = true,
 	enable_scroll_bar = false,
 	enable_tab_bar = false,
 	font = wezterm.font({
