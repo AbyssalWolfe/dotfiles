@@ -98,13 +98,13 @@ smart_gaps off
     bindsym $mod+Return exec $term
 
 	# Start browser
-	bindsym $mod+Shift+b exec $browser
+	bindsym $mod+b exec $browser
 
 	# Take screenshot
 	bindsym Print exec $screenshot
 
     # Kill focused window
-    bindsym $mod+Shift+q kill
+    bindsym $mod+q kill
 
     # Start your launcher
     bindsym $mod+space exec $menu
