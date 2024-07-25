@@ -9,13 +9,12 @@ $username\
 $hostname\
 [](fg:green bg:cyan)\
 $directory\
-[](fg:cyan bg:yellow)\
+[](fg:cyan)\
 $git_status\
 $git_metrics\
 $git_state\
 $git_commit\
 $git_branch\
-[](fg:yellow bg:orange)\
 $package\
 $c\
 $dotnet\
@@ -29,118 +28,106 @@ $python\
 $ruby\
 $rust\
 $zig\
-[](fg:orange bg:red)\
+$cmake\
 $docker_context\
-[](fg:red)\
+$fill\
+$time\
 $line_break\
 $character
 """
 
 right_format = """
-$line_break\
-$cmd_duration\
+$cmd_duration
 """
+
+continuation_prompt = "[󰄾 ](green)"
 
 palette = 'dracula_pro'
 
 [c]
-format = '[$symbol($version(-$name) )]($style)'
-style = 'bold fg:background bg:orange'
+format = '( [$symbol($version(-$name))]($style))'
 symbol = ' '
 
 [character]
-success_symbol = '[](fg:green)'
-error_symbol = '[](fg:red)'
+success_symbol = '[󰅂](bold fg:green)'
+error_symbol = '[󰅂](bold fg:red)'
+vimcmd_symbol = '[󰅂](bold fg:purple)'
+vimcmd_replace_one_symbol = '[󰅂](bold fg:red)'
+vimcmd_replace_symbol = '[󰅂](bold fg:red)'
+vimcmd_visual_symbol = '[󰅂](bold fg:yellow)'
+
+[cmake]
+format = '( [$symbol($version)]($style))'
+symbol = '󰯙 '
 
 [cmd_duration]
-format = '[](fg:cyan)[~]($style)[$duration]($style)'
+format = '[](fg:cyan)[ $duration ]($style)'
 style = 'bold fg:background bg:cyan'
 
 [directory]
-format = '[$path]($style)[$read_only]($read_only_style)'
+format = '[󰝰 $path ]($style)[$read_only]($read_only_style)'
 style = 'bold fg:background bg:cyan'
-home_symbol = '󰋜 '
-read_only = ' 󰌾'
+read_only = '󰌾 '
 truncation_symbol = '.../'
-
-[directory.substitutions]
-".config" = ' '
-".ssh" = '󰌆 '
-"Desktop" = ' '
-"Documents" = '󰈙 '
-"Downloads" = ' '
-"Music" = ' '
-"Pictures" = ' '
-"Projects" = '󱇧 '
-"Scripts" = '󰈮 '
-"Videos" = '󰕧 '
+fish_style_pwd_dir_length = 2
 
 [docker_context]
-format = '[$symbol$context]($style)'
-style = 'bold fg:background bg:red'
+format = '( [$symbol$context]($style))'
 symbol = ' '
 
 [dotnet]
-format = '[$symbol($version )(󰣉 $tfm )]($style)'
-style = 'bold fg:background bg:orange'
+format = '( [$symbol($version)( 󰣉 $tfm)]($style))'
 symbol = '󰪮 '
 
+[fill]
+symbol = ' '
+
 [git_branch]
-format = '[$symbol$branch(:$remote_branch)]($style)'
-style = 'bold fg:background bg:yellow'
+format = '( [$symbol$branch(:$remote_branch)]($style))'
 symbol = ' '
 
 [git_commit]
-format = '[\($hash$tag\) ]($style)'
-style = 'bold fg:green bg:yellow'
+format = '( [\($hash$tag\)]($style))'
 
 [git_metrics]
-format = '([+$added ]($added_style))([-$deleted ]($deleted_style))'
-added_style = 'bold fg:green bg:yellow'
-deleted_style = 'bold fg:red bg:yellow'
+format = '( [+$added]($added_style))( [-$deleted]($deleted_style))'
 disabled = false
 
 [git_state]
-format = '\([$state( $progress_current/$progress_total) ]($style)\)'
-style = 'bold fg:background bg:yellow'
-cherry_pick = ' PICKING'
+format = '( \([$state( $progress_current/$progress_total)]($style)\))'
+cherry_pick = '[ PICKING](bold fg:red)'
 
 [git_status]
-format = '([\[$all_status$ahead_behind\] ]($style))'
-style = 'bold fg:red bg:yellow'
+format = '( [\[$all_status$ahead_behind\]]($style))'
 
 [golang]
-format = '[$symbol($version )]($style)'
-style = 'bold fg:background bg:orange'
+format = '( [$symbol($version)]($style))'
 symbol = ' '
 
 [hostname]
-format = '[$ssh_symbol$hostname]($style)'
+format = '[$ssh_symbol$hostname ]($style)'
 style = 'bold fg:background bg:green'
 ssh_symbol = ' '
 ssh_only = false
 
 [java]
-format = '[$symbol($version )]($style)'
-style = 'bold fg:background bg:orange'
+format = '( [$symbol($version)]($style))'
 symbol = ' '
 
 [kotlin]
-format = '[$symbol($version )]($style)'
-style = 'bold fg:background bg:orange'
+format = '( [$symbol($version)]($style))'
 symbol = ' '
 
 [lua]
-format = '[$symbol($version )]($style)'
-style = 'bold fg:background bg:orange'
+format = '( [$symbol($version)]($style))'
 symbol = ' '
 
 [nodejs]
-format = '[$symbol($version )]($style)'
-style = 'bold fg:background bg:orange'
+format = '( [$symbol($version)]($style))'
 symbol = ' '
 
 [os]
+format = '[$symbol]($style)'
 style = 'bold fg:background bg:purple'
 disabled = false
 
@@ -190,8 +177,7 @@ Void = ' '
 Windows = '󰍲 '
 
 [package]
-format = '[$symbol$version ]($style)'
-style = 'bold fg:background bg:orange'
+format = '( [$symbol$version]($style))'
 symbol = '󰏗 '
 
 [palettes.dracula_pro]
@@ -206,47 +192,41 @@ red = '#ff9580'
 yellow = '#ffff80'
 
 [perl]
-format = '[$symbol($version )]($style)'
-style = 'bold fg:background bg:orange'
+format = '( [$symbol($version)]($style))'
 symbol = ' '
 
 [php]
-format = '[$symbol($version )]($style)'
-style = 'bold fg:background bg:orange'
+format = '( [$symbol($version)]($style))'
 symbol = ' '
 
 [python]
-format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
-style = 'bold fg:background bg:orange'
+format = '( [${symbol}${pyenv_prefix}(${version})( \($virtualenv\))]($style))'
 symbol = ' '
 
 [ruby]
-format = '[$symbol($version )]($style)'
-style = 'bold fg:background bg:orange'
+format = '( [$symbol($version)]($style))'
 symbol = ' '
 
 [rust]
-format = '[$symbol($version )]($style)'
-style = 'bold fg:background bg:orange'
+format = '( [$symbol($version)]($style))'
 symbol = ' '
 
 [terraform]
-format = '[$symbol$workspace ]($style)'
-style = 'bold fg:background bg:orange'
+format = '( [$symbol$workspace]($style))'
 symbol = '󱁢 '
 
 [time]
-format = '[](fg:yellow)[$time]($style)'
+format = '[](fg:yellow)[ $time ]($style)'
+time_format = '%H:%M'
 style = 'bold fg:background bg:yellow'
 disabled = false
 
 [username]
-format = '[$user]($style)'
+format = '[ $user]($style)'
 style_user = 'bold fg:background bg:green'
 style_root = 'bold fg:red bg:green'
 show_always = true
 
 [zig]
-format = '[$symbol($version )]($style)'
-style = 'bold fg:background bg:orange'
+format = '( [$symbol($version)]($style))'
 symbol = ' '
