@@ -1,24 +1,47 @@
+##########################################################
+#                                                        #
+# ██╗      █████╗ ███████╗██╗   ██╗ ██████╗ ██╗████████╗ #
+# ██║     ██╔══██╗╚══███╔╝╚██╗ ██╔╝██╔════╝ ██║╚══██╔══╝ #
+# ██║     ███████║  ███╔╝  ╚████╔╝ ██║  ███╗██║   ██║    #
+# ██║     ██╔══██║ ███╔╝    ╚██╔╝  ██║   ██║██║   ██║    #
+# ███████╗██║  ██║███████╗   ██║   ╚██████╔╝██║   ██║    #
+# ╚══════╝╚═╝  ╚═╝╚══════╝   ╚═╝    ╚═════╝ ╚═╝   ╚═╝    #
+#                                                        #
+##########################################################
+
+disableStartupPopups: true
+
+git:
+  commit:
+    signOff: true
+  paging:
+    pager: "delta --paging=never"
+
 gui:
+  authorColors:
+    "*": "#7970a9"
+  mouseEvents: false
+  nerdFontsVersion: "3"
+  shortTimeFormat: "15:04"
+  showRandomTip: false
+  timeFormat: "Jan 02 06"
   theme:
     activeBorderColor:
       - "#9580ff"
       - bold
+    defaultFgColor:
+      - "#f8f8f2"
     inactiveBorderColor:
       - "#424450"
-    optionsTextColor:
-      - "#80ffea"
-    selectedLineBgColor:
-      - "#2e2b3b"
     cherryPickedCommitBgColor:
       - "#393649"
     cherryPickedCommitFgColor:
       - "#9580ff"
-    unstagedChangesColor:
-      - "#ff9580"
-    defaultFgColor:
-      - "#f8f8f2"
+    optionsTextColor:
+      - "#80ffea"
     searchingActiveBorderColor:
       - "#ffca80"
-
-  authorColors:
-    "*": "#7970a9"
+    selectedLineBgColor:
+      - "#2e2b3b"
+    unstagedChangesColor:
+      - "#ff9580"
