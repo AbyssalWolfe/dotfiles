@@ -99,6 +99,7 @@ smart_gaps off
 
 	# Start browser
 	bindsym $mod+b exec $browser
+	bindsym $mod+Shift+b exec torbrowser-launcher
 
 	# Take screenshot
 	bindsym Print exec $screenshot
@@ -178,7 +179,7 @@ smart_gaps off
     # You can "split" the current object of your focus with
     # $mod+b or $mod+v, for horizontal and vertical splits
     # respectively.
-    bindsym $mod+b splith
+    bindsym $mod+Shift+v splith
     bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
@@ -281,10 +282,8 @@ workspace 7 output DP-1 eDP-1
 workspace 8 output DP-1 eDP-1
 workspace 9 output DP-1 eDP-1
 workspace 0 output DP-1 eDP-1
-assign [class="FireFox"] workspace 2
-assign [class="LibreWolf"] workspace 2
 assign [app_id="firefox"] workspace 2
-assign [app_id="org.qutebrowser.qutebrowser"] workspace 2
+assign [app_id="Tor Browser"] workspace 2
 assign [app_id="mpv"] workspace 3
 assign [class="discord"] workspace 5
 assign [app_id="WebCord"] workspace 5
