@@ -63,6 +63,7 @@ alias nps='pnpm start'
 alias npt='pnpm test'
 
 # Git
+alias lg='lazygit'
 alias ga='git add'
 alias gaa='git add --all'
 alias gb='git branch'
