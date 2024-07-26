@@ -18,7 +18,7 @@ if test -e "/tmp/mpv.sock" && echo "{\"command\": [\"get_version\"]}" | socat - 
 	playlist_position=$(echo "{\"command\": [\"get_property\", \"playlist-pos\"]}" | socat - /tmp/mpv.sock | jq '.data')
 	playing_eof=$(echo "{\"command\": [\"get_property\", \"eof-reached\"]}" | socat - /tmp/mpv.sock | jq '.data')
 
-	if test "$((playlist_length - 1))" -eq "$playlist_position" && "$playing_eof" -eq "true"; then
+	if test "$((playlist_length - 1))" -eq "$playlist_position" && test "$playing_eof" -eq "true"; then
 		echo "{\"command\": [\"playlist-clear\"]}" | socat - /tmp/mpv.sock
 	else
 		for i in $(seq 0 "$((playlist_length - 1))"); do
