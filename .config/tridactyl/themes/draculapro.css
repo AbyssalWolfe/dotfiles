@@ -1,0 +1,180 @@
+/* Modified: https://github.com/bezmi/base16-tridactyl/blob/master/base16-dracula.css */
+:root {
+	/* Dracula PRO by Zeno Rocha (https://draculatheme.com) */
+	/* Originally Base16 Dracula by Chris Kempson (http://chriskempson.com) */
+	--baseBG: #22212c;
+	--base00: #454158;
+	--base01: #ff9580;
+	--base02: #8aff80;
+	--base03: #ffff80;
+	--base04: #9580ff;
+	--base05: #ff80bf;
+	--base06: #80ffea;
+	--base07: #f8f8f2;
+	--base08: #7970a9;
+	--base09: #ffaa99;
+	--base0A: #a2ff99;
+	--base0B: #ffff99;
+	--base0C: #aa99ff;
+	--base0D: #ff99cc;
+	--base0E: #99ffee;
+	--base0F: #ffffff;
+
+	--tridactyl-fg: var(--base07) !important;
+	--tridactyl-bg: var(--baseBG) !important;
+	--tridactyl-url-fg: var(--base05) !important;
+	--tridactyl-url-bg: var(--baseBG) !important;
+	--tridactyl-highlight-box-fg: var(--baseBG) !important;
+	--tridactyl-highlight-box-bg: var(--base04) !important;
+	--tridactyl-search-highlight-color: var(--base03) !important;
+
+	--tridactyl-font-family: "Fira Code" !important;
+
+	/* Command line */
+	--tridactyl-cmdline-fg: var(--base07) !important;
+	--tridactyl-cmdline-bg: var(--baseBG) !important;
+	--tridactyl-cmdline-font-size: 1.5rem !important;
+	--tridacytl-cmdline-line-height: 1.5 !important;
+	
+	/* Hint character tags */
+	--tridactyl-hintspan-fg: var(--baseBG) !important;
+	--tridactyl-hintspan-bg: var(--base02) !important;
+
+	/* Element Highlights */
+	--tridactyl-hint-active-fg: none !important;
+	--tridactyl-hint-active-bg: none !important;
+	--tridactyl-hint-active-outline: none !important;
+	--tridactyl-hint-bg: none !important;
+	--tridactyl-hint-outline: none !important;
+}
+
+#command-line-holder {
+	order: 1 !important;
+	border: 2px solid var(--base04) !important;
+	font-size: var(--tridactyl-cmdline-font-size) !important;
+	line-height: var(--tridacytl-cmdline-line-height) !important;
+}
+
+input {
+	font-size: var(--tridactyl-cmdline-font-size) !important;
+	line-height: var(--tridacytl-cmdline-line-height) !important;
+}
+
+#completions table {
+	font-size: 0.8rem !important;
+	font-weight: 200 !important;
+	border-spacing: 0 !important;
+	table-layout: fixed !important;
+	padding: 1rem !important;
+	padding-top: 1rem !important;
+	padding-bottom: 1rem !important;
+}
+
+#completions > div {
+	max-height: calc(20 * var(--option-height)) !important;
+	min-height: calc(10 * var(--option-height)) !important;
+}
+
+/* COMPLETIONS */
+
+#completions {
+	--option-height: 1.4em !important;
+	color: var(--tridactyl-fg) !important;
+	background: var(--tridactyl-bg) !important;
+	display: inline-block !important;
+	font-size: unset !important;
+	font-weight: 200 !important;
+	overflow: hidden !important;
+	width: 100% !important;
+	border-top: unset !important;
+	order: 2 !important;
+}
+
+/* Olie doesn't know how CSS inheritance works */
+#completions .HistoryCompletionSource {
+	max-height: unset !important;
+	min-height: unset !important;
+}
+
+#completions .HistoryCompletionSource table {
+	width: 100% !important;
+	font-size: 9pt !important;
+	border-spacing: 0 !important;
+	table-layout: fixed !important;
+}
+
+/* redundancy 2: redundancy 2: more redundancy */
+#completions .BmarkCompletionSource {
+	max-height: unset !important;
+	min-height: unset !important;
+}
+
+#completions table tr td.prefix,#completions table tr td.privatewindow,#completions table tr td.container,#completions table tr td.icon {
+	display: none !important;
+}
+
+#completions .BufferCompletionSource table {
+	width: unset !important;
+	font-size: unset !important;
+	border-spacing: unset !important;
+	table-layout: unset !important;
+}
+
+#completions table tr .title {
+	width: 50% !important;
+}
+
+#completions table tr {
+	white-space: nowrap !important;
+	overflow: hidden !important;
+	text-overflow: ellipsis !important;
+}
+
+#completions .sectionHeader {
+	background: unset !important;
+	font-weight: 200 !important;
+	border-bottom: unset !important;
+	padding: 1rem !important;
+	padding-left: unset !important;
+	padding-bottom: 0.2rem !important;
+}
+
+#cmdline_iframe {
+	position: fixed !important;
+	bottom: unset !important;
+	top: 25% !important;
+	left: 10% !important;
+	z-index: 2147483647 !important;
+	width: 80% !important;
+	box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 20px !important;
+}
+
+.TridactylStatusIndicator {
+	position: fixed !important;
+	bottom: 5 !important;
+	right: 5 !important;
+	background: var(--tridactyl-bg) !important;
+	border: unset !important;
+	border: 1px var(--base04) solid !important;
+	font-size: 12pt !important;
+	/*font-weight: 200 !important;*/
+	padding: 0.8ex !important;
+}
+
+#completions .focused {
+	background: var(--base04) !important;
+	color: var(--baseBG) !important;
+}
+
+#completions .focused .url {
+	background: var(--base03) !important;
+	color: var(--baseBG) !important;
+}
+
+/* #Ocean-normal { */
+/* 	border-color: var(--base04) !important; */
+/* } */
+
+/* #Ocean-insert { */
+/* 	border-color: var(--base02) !important; */
+/* } */

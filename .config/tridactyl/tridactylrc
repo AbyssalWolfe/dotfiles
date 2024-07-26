@@ -1,0 +1,58 @@
+" vim: filetype=vim
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                                                                        "
+" ████████╗██████╗ ██╗██████╗  █████╗  ██████╗████████╗██╗   ██╗██╗     ██████╗  ██████╗ "
+" ╚══██╔══╝██╔══██╗██║██╔══██╗██╔══██╗██╔════╝╚══██╔══╝╚██╗ ██╔╝██║     ██╔══██╗██╔════╝ "
+"    ██║   ██████╔╝██║██║  ██║███████║██║        ██║    ╚████╔╝ ██║     ██████╔╝██║      "
+"    ██║   ██╔══██╗██║██║  ██║██╔══██║██║        ██║     ╚██╔╝  ██║     ██╔══██╗██║      "
+"    ██║   ██║  ██║██║██████╔╝██║  ██║╚██████╗   ██║      ██║   ███████╗██║  ██║╚██████╗ "
+"    ╚═╝   ╚═╝  ╚═╝╚═╝╚═════╝ ╚═╝  ╚═╝ ╚═════╝   ╚═╝      ╚═╝   ╚══════╝╚═╝  ╚═╝ ╚═════╝ "
+"                                                                                        "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" Reset local settings
+sanitize tridactyllocal tridactylsync
+
+" Clear searchurls, run twice because race condition cuts off the first iteration
+jsb Object.keys(tri.config.get("searchurls")).reduce((prev, u) => prev.then(_ => tri.config.set("searchurls", u, null)), Promise.resolve())
+jsb Object.keys(tri.config.get("searchurls")).reduce((prev, u) => prev.then(_ => tri.config.set("searchurls", u, null)), Promise.resolve())
+
+" Options
+set homepages ["https://start.duckduckgo.com"]
+set newtab https://start.duckduckgo.com
+set searchengine ddg
+set searchurls.arch https://wiki.archlinux.org/index.php?search=%s
+set searchurls.crates https://crates.io/search?q=%s
+set searchurls.ddg https://start.duckduckgo.com/?q=%s
+set searchurls.gem https://rubygems.org/search?query=%s
+set searchurls.gh https://github.com/search?utf8=✓&q=%s
+set searchurls.go https://pkg.go.dev/search?q=%s
+set searchurls.gw https://wiki.gentoo.org/index.php?search=%s
+set searchurls.mdn https://developer.mozilla.org/en-US/search?q=%s
+set searchurls.node https://nodejs.org/api/search.html?q=%s
+set searchurls.npm https://www.npmjs.com/search?q=%s
+set searchurls.osm https://www.openstreetmap.org/search?query=%s
+set searchurls.pip https://pypi.org/search/?q=%s
+set searchurls.py https://docs.python.org/3/search.html?q=%s
+set searchurls.sx https://searx.me/?category_general=on&q=%s
+set searchurls.rfc https://datatracker.ietf.org/doc/html/rfc%s
+set searchurls.rust https://doc.rust-lang.org/std/?search=%s
+set searchurls.wiki https://en.wikipedia.org/wiki/Special:Search/%s
+set smoothscroll true
+
+" Theme
+colorscheme draculapro
+
+" Keybindings
+unbind gr
+
+bind J tabprev
+bind K tabnext
+bind ;gv hint -qW js -p tri.excmds.shellescape(JS_ARG).then(url => tri.excmds.exclaim_quiet('play ' + url))
+
+" Quickmarks
+quickmark g https://github.com/AbyssalWolfe
+
+" URL Redirects
+autocmd DocStart ^http(s?)://en.wikipedia.org/wiki js tri.excmds.urlmodify("-t", "en.wikipedia.org/wiki", "www.wikiwand.com/en")
