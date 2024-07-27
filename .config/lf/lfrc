@@ -19,16 +19,16 @@ set sixel true
 
 cmd extract ${{
 	set -f
-	atool -x $f
+	atool -x $fx
 }}
 
-cmd fzf $$EDITOR $(find . -name "$1" | fzf)
+cmd fzf $$EDITOR $(fd -H "$1" | fzf)
 
 cmd fzf_jump ${{
-	res="$(find . -maxdepth 1 | fzf --reverse --header='Jump to location')"
+	res="$(fd -Hd 1 | fzf --reverse --header='Jump to location')"
 	if [ -n "$res" ]; then
 		if [ -d "$res" ]; then
-			cmd="cd"
+			cmd="pushd"
 		else
 			cmd="select"
 		fi
@@ -38,19 +38,16 @@ cmd fzf_jump ${{
 }}
 
 cmd fzf_search ${{
-	RG_PREFIX="rg --column --line-number --no-heading --color=always --smart-case "
-	res="$(
-		FZF_DEFAULT_COMMAND="$RG_PREFIX ''" \
-			fzf --bind "change:reload:$RG_PREFIX {q} || true" \
-			--ansi --layout=reverse --header 'Search in files' \
-			| cut -d':' -f1 | sed 's/\\/\\\\/g;s/"/\\"/g'
-	)"
-	[ -n "$res" ] && lf -remote "send $id select \"$res\""
+    cmd="rg --column --line-number --no-heading --color=always --smart-case"
+    fzf --ansi --disabled --layout=reverse --header="Search in files" --delimiter=: \
+        --bind="start:reload([ -n {q} ] && $cmd -- {q} || true)" \
+        --bind="change:reload([ -n {q} ] && $cmd -- {q} || true)" \
+        --bind='enter:become(lf -remote "send $id select \"$(printf "%s" {1} | sed '\''s/\\/\\\\/g;s/"/\\"/g'\'')\"")' \
+        --preview='~/.config/lf/cleaner; ~/.config/lf/previewer {1} "$FZF_PREVIEW_COLUMNS" "$FZF_PREVIEW_LINES" "$FZF_PREVIEW_LEFT" "$FZF_PREVIEW_TOP"')"
 }}
 
 cmd on-cd &{{
-	export STARSHIP_SHELL=
-	fmt="$(starship prompt)"
+	fmt="$(STARSHIP_SHELL= starship prompt | sed -r 's/(.*)//g')"
 	lf -remote "send $id set promptfmt \"$fmt\""
 }}
 
