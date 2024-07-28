@@ -20,7 +20,7 @@ brights = [
 	"#99ffee",
 	"#ffffff",
 ]
-compose_cursor = "#ffb86c"
+compose_cursor = "#ffca80"
 cursor_bg = "#f8f8f2"
 cursor_border = "#f8f8f2"
 cursor_fg = "#454158"
