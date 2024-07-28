@@ -71,15 +71,27 @@ zle -N zle-keymap-select
 zle -N zle-line-init
 echo -ne "\e[5 q"
 
+# Directory navigation
+setopt auto_cd
+setopt auto_pushd
+setopt cd_silent
+setopt pushd_ignore_dups
+setopt pushd_minus
+setopt pushd_silent
+setopt pushd_to_home
+
 # Ctrl+f to pushd using fzf
 bindkey -s '^f' '^upushd "$(dirname "$(fzf)")"\n'
 
-# Ctrl+o to pushd using lf
-function lfcd() {
+# Ctrl+b to navigate directory stack using fzf
+bindkey -s '^b' '^upushd "$(dirs -v | fzf)"\n'
+
+# Ctrl+o to pushd using yazi
+function yy() {
 	local tmp="$(mktemp -uq)"
 
 	trap 'rm -f $tmp >/dev/null 2>&1 && trap - HUP INT QUIT TERM PWR EXIT' HUP INT QUIT TERM PWR EXIT
-	lf -last-dir-path="$tmp" "$@"
+	yazi "$@" --cwd-file="$tmp"
 
 	if [ -f "$tmp" ]; then
 		local dir="$(cat "$tmp")"
@@ -87,7 +99,7 @@ function lfcd() {
 	fi
 }
 
-bindkey -s '^o' '^ulfcd\n'
+bindkey -s '^o' '^uyy\n'
 
 # Ctrl+p to popd
 bindkey -s '^p' '^upopd\n'

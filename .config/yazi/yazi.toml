@@ -1,0 +1,26 @@
+################################
+#                              #
+# ██╗   ██╗ █████╗ ███████╗██╗ #
+# ╚██╗ ██╔╝██╔══██╗╚══███╔╝██║ #
+#  ╚████╔╝ ███████║  ███╔╝ ██║ #
+#   ╚██╔╝  ██╔══██║ ███╔╝  ██║ #
+#    ██║   ██║  ██║███████╗██║ #
+#    ╚═╝   ╚═╝  ╚═╝╚══════╝╚═╝ #
+#                              #
+################################
+
+[manager]
+ratio = [1, 3, 4]
+show_hidden = true
+sort_by = "natural"
+
+[plugin]
+append_previewers = [
+	{ name = "*.md", run = "glow" },
+	{ name = "*", run = "hexyl" },
+]
+prepend_previewers = [
+	{ mime = "text/csv", run = "miller" },
+	{ mime = "{image,audio,video}/*", run = "mediainfo" },
+	{ mime = "application/x-subrip", run = "mediainfo" },
+]
