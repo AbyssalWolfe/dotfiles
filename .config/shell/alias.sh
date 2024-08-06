@@ -54,6 +54,7 @@ fi
 
 # Node.js and npm/pnpm
 alias npa='pnpm add'
+alias npc='pnpm create'
 alias npd='pnpm add --dev'
 alias npg='pnpm add --global'
 alias npi='pnpm install'
@@ -61,6 +62,7 @@ alias npI='pnpm init'
 alias npr='pnpm run'
 alias nps='pnpm start'
 alias npt='pnpm test'
+alias npx='pnpx'
 
 # Git
 alias lg='lazygit'
