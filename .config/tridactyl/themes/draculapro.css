@@ -55,7 +55,7 @@
 	line-height: var(--tridacytl-cmdline-line-height) !important;
 }
 
-input {
+#tridactyl-input {
 	font-size: var(--tridactyl-cmdline-font-size) !important;
 	line-height: var(--tridacytl-cmdline-line-height) !important;
 }
