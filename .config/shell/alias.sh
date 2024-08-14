@@ -25,7 +25,7 @@ alias pd='popd'
 if test -e /etc/os-release; then
 	case $(grep -oP "(?<=^ID=).+" /etc/os-release | tr -d '"') in
 	arch | manjaro | steamos)
-		if [ "$(command -v paru)" = "/sbin/paru" ]; then
+		if [ "$(command -v paru)" != "" ]; then
 			alias pkgi='paru -S'
 			alias pkgr='paru -Rnsc'
 			alias pkgs='paru -Ss'
