@@ -10,6 +10,31 @@
 ########################################################
 
 [[manager.prepend_keymap]]
+on = "d"
+run = "yank --cut"
+desc = "Yank selected files (cut)"
+
+[[manager.prepend_keymap]]
+on = "D"
+run = "unyank"
+desc = "Cancel the yank status"
+
+[[manager.prepend_keymap]]
+on = "<Delete>"
+run = "remove --permanently"
+desc = "Delete selected files"
+
+[[manager.prepend_keymap]]
+on = "x"
+run = "noop"
+desc = "Disable keybind"
+
+[[manager.prepend_keymap]]
+on = "X"
+run = "noop"
+desc = "Disable keybind"
+
+[[manager.prepend_keymap]]
 on = "T"
 run = "plugin --sync max-preview"
 desc = "Maximize or restore preview"
