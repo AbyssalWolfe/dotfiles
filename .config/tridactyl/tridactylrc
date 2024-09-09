@@ -47,8 +47,10 @@ colorscheme draculapro
 " Keybindings
 unbind gr
 
-bind J tabprev
-bind K tabnext
+bind H tabprev
+bind J back
+bind K forward
+bind L tabnext
 bind ;gv hint -qW js -p tri.excmds.shellescape(JS_ARG).then(url => tri.excmds.exclaim_quiet('play ' + url))
 
 " Quickmarks
