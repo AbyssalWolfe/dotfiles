@@ -21,52 +21,6 @@ alias l='lsd -a'
 alias ll='lsd -la'
 alias pd='popd'
 
-# Package management
-if test -e /etc/os-release; then
-	case $(grep -oP "(?<=^ID=).+" /etc/os-release | tr -d '"') in
-	arch | manjaro | steamos)
-		if [ "$(command -v paru)" != "" ]; then
-			alias pkgi='paru -S'
-			alias pkgr='paru -Rnsc'
-			alias pkgs='paru -Ss'
-			alias pkgu='paru -Syu'
-		else
-			alias pkgi='sudo pacman -S'
-			alias pkgr='sudo pacman -Rnsc'
-			alias pkgs='sudo pacman -Ss'
-			alias pkgu='sudo pacman -Syu'
-		fi
-		;;
-	debian | ubuntu)
-		alias pkgi='sudo apt update && sudo apt install'
-		alias pkgr='sudo apt remove'
-		alias pkgs='sudo apt update && sudo apt search'
-		alias pkgu='sudo apt update && sudo apt upgrade'
-		;;
-	fedora)
-		alias pkgi='sudo dnf install'
-		alias pkgr='sudo dnf remove'
-		alias pkgs='sudo dnf search'
-		alias pkgu='sudo dnf upgrade'
-		;;
-	esac
-fi
-
-# Node.js and npm/pnpm
-alias npa='pnpm add'
-alias npc='pnpm create'
-alias npd='pnpm add --save-dev'
-alias npg='pnpm add --global'
-alias npi='pnpm install'
-alias npI='pnpm init'
-alias npr='pnpm remove'
-alias nprd='pnpm remove --save-dev'
-alias nprg='pnpm remove --global'
-alias npR='pnpm run'
-alias nps='pnpm start'
-alias npt='pnpm test'
-alias npx='pnpx'
-
 # Git
 alias lg='lazygit'
 alias ga='git add'
@@ -79,9 +33,9 @@ alias gbd='git branch --delete'
 alias gbm='git branch --move'
 alias gbr='git branch --remote'
 alias gbsup='git branch --set-upstream-to=origin/$(git_branch current)'
-alias gc='git commit -s'
+alias gc='git commit'
 alias gcd='git checkout $(git_branch develop)'
-alias gcl='git clone'
+alias gcl='git clone --recursive'
 alias gcm='git checkout $(git_branch master)'
 alias gco='git checkout'
 alias gcor='git checkout --recurse-submodules'
@@ -130,10 +84,14 @@ alias grset='git remote set-url'
 alias grup='git remote update'
 alias gru='git reset --'
 alias gs='git status'
+alias gse='git send-email'
 alias gsh='git show'
 alias gsma='git submodule add'
 alias gsmi='git submodule init'
-alias gsmu='git submodule update'
+alias gsms='git submodule sync --recursive'
+alias gsmu='git submodule update --init --recursive'
+alias gsmum='git submodule update --merge --remote'
+alias gsmur='git submodule update --rebase --remote'
 alias gsta='git stash apply'
 alias gstal='git stash --all'
 alias gstc='git stash clear'
