@@ -13,7 +13,7 @@
 	addIgnoredFile = false
 
 [commit]
-	gpgsign = true
+	gpgSign = true
 	template = ~/.config/git/message.txt
 
 [core]
@@ -33,6 +33,9 @@
 [fetch]
 	prune = true
 
+[format]
+	signOff = true
+
 [include]
 	path = config.local
 
@@ -40,7 +43,19 @@
 	diffFilter = delta --color-only
 
 [merge]
-	conflictstyle = diff3
+	conflictStyle = diff3
+
+[sendemail]
+	annotate = true
+
+[submodule]
+	recurse = true
 
 [url "github:"]
 	insteadOf = "git@github.com:"
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
