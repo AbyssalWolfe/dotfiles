@@ -331,7 +331,7 @@ exec mpv --no-terminal --input-ipc-server=/tmp/mpv.sock $argv &> /dev/null
 # Jellyfin MPV Shim
 exec jellyfin-mpv-shim
 # Discord
-exec webcord --ozone-platform=wayland
+exec discord
 
 #
 # Laptop Display
