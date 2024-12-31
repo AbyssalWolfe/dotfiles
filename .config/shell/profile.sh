@@ -15,7 +15,7 @@
 export BAT_THEME="Dracula Pro"
 export BROWSER="firefox"
 export CC="clang"
-export CMAKE_GENERATOR="ninja"
+export CMAKE_GENERATOR="Ninja"
 export CXX="clang++"
 export DEVKITARM="/opt/devkitpro/devkitARM"
 export DEVKITPPC="/opt/devkitpro/devkitPPC"
