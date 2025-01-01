@@ -75,6 +75,7 @@
 #language,
 #memory,
 #mode,
+#mpd,
 #network,
 #pulseaudio,
 #temperature,
@@ -91,18 +92,25 @@
 /* Each critical module */
 #memory.critical,
 #cpu.critical,
+#mpd.disconnected,
 #temperature.critical,
 #battery.critical {
 	color: @red;
 }
 
-/* Each warning */
+/* Each warning module */
 #network.disconnected,
 #memory.warning,
 #cpu.warning,
+#mpd.stopped,
 #temperature.warning,
 #battery.warning {
 	color: @orange;
+}
+
+/* Each info module */
+#mpd.paused {
+	color: @yellow;
 }
 
 /* And now modules themselves */
@@ -205,4 +213,11 @@
 #custom-gpu {
 	border-color: @cyan;
 	color: @cyan;
+}
+
+#mpd {
+	margin-left: 10px;
+	border: 2px solid @bright_purple;
+	border-radius: 20px;
+	color: @green;
 }
